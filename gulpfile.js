@@ -119,7 +119,7 @@ gulp.task('watch', ['js', 'sass'], () => {
 // BUILD
 gulp.task('build', (callback) => {
   runSequence('clean:dist',
-    ['js', 'sass', 'useref', 'images', 'fonts', 'browserSync'],
+    ['js', 'sass', 'useref', 'images', 'fonts'],
     callback
   )
 });
