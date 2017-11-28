@@ -25,35 +25,7 @@ const entryPoint = 'src/scripts/main.js',
   fontWatchPath = 'src/fonts/**/*',
   imageWatchPath = 'src/images/**/*.+(png|jpg|gif|svg)';
 
-gulp.task('browserSync', () => {
-  browserSync.init({
-    server: {
-      baseDir: browserDir
-    },
-  })
-});
-
-gulp.task('useref', () => {
-  return gulp.src(htmlWatchPath)
-    .pipe(useref())
-    .pipe(gulpIf('*.js', uglify()))
-    .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulp.dest('dist'))
-});
-
-gulp.task('images', () => {
-  return gulp.src(imageWatchPath)
-  .pipe(cache(imagemin({
-      interlaced: true
-    })))
-  .pipe(gulp.dest('dist/images'))
-});
-
-gulp.task('fonts', () => {
-  return gulp.src(fontWatchPath)
-    .pipe(gulp.dest('dist/fonts'))
-});
-
+/* JS Pre-processing */
 gulp.task('js', () => {
   return browserify(entryPoint, {
       debug: true,
@@ -72,12 +44,12 @@ gulp.task('js', () => {
     .pipe(gulp.dest('./dist/'));
 });
 
-
+// Ensure browserSync reloads after Pre-processing is complete
 gulp.task('js-watch', ['js'], () => {
     browserSync.reload();
 });
 
-
+/* CSS Pre-Processing */
 gulp.task('sass', () => {
   return gulp.src(sassWatchPath)
     .pipe(sourcemaps.init())
@@ -87,17 +59,43 @@ gulp.task('sass', () => {
     .pipe(gulp.dest('./src/css'));
 });
 
-
+// Ensure browserSync reloads after Pre-processing is complete
 gulp.task('sass-watch', ['sass'], () => {
     browserSync.reload();
 });
 
+/* Concatinate and Minify JS and CSS Files to Dist */
+gulp.task('useref', () => {
+  return gulp.src(htmlWatchPath)
+    .pipe(useref())
+    .pipe(gulpIf('*.js', uglify()))
+    .pipe(gulpIf('*.css', cssnano()))
+    .pipe(gulp.dest('dist'))
+});
 
+/* Minify Images */
+gulp.task('images', () => {
+  return gulp.src(imageWatchPath)
+  .pipe(cache(imagemin({
+      interlaced: true
+    })))
+  .pipe(gulp.dest('dist/images'))
+});
+
+/* Move fonts to Dist */
+gulp.task('fonts', () => {
+  return gulp.src(fontWatchPath)
+    .pipe(gulp.dest('dist/fonts'))
+});
+
+/* Cleanup */
 gulp.task('clean:dist', () => {
   return del.sync('dist');
 })
 
-// use default task to launch Browsersync and watch JS and Sass files
+/********************WATCH********************/
+
+// Launch Browsersync and watch JS and Sass files
 gulp.task('watch', ['js', 'sass'], () => {
 
   browserSync.init({
@@ -116,7 +114,8 @@ gulp.task('watch', ['js', 'sass'], () => {
   });
 });
 
-// BUILD
+/********************BUILD********************/
+
 gulp.task('build', (callback) => {
   runSequence('clean:dist',
     ['js', 'sass', 'useref', 'images', 'fonts'],
