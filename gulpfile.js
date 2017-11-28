@@ -1,61 +1,43 @@
-const browserify = require('browserify'),
-  gulp = require('gulp'),
-  sass = require('gulp-sass'),
-  postcss = require('gulp-postcss'),
-  sourcemaps = require('gulp-sourcemaps'),
-  autoprefixer = require('autoprefixer'),
-  source = require('vinyl-source-stream'),
+const autoprefixer = require('autoprefixer'),
+  browserify = require('browserify'),
+  browserSync = require('browser-sync').create(),
   buffer = require('vinyl-buffer'),
-  useref = require('gulp-useref'),
-  uglify = require('gulp-uglify'),
-  gulpIf = require('gulp-if'),
-  cssnano = require('gulp-cssnano'),
-  imagemin = require('gulp-imagemin'),
   cache = require('gulp-cache'),
-  runSequence = require('run-sequence'),
+  cssnano = require('gulp-cssnano'),
   del = require('del'),
-  browserSync = require('browser-sync').create();
+  gulp = require('gulp'),
+  gulpIf = require('gulp-if'),
+  imagemin = require('gulp-imagemin'),
+  postcss = require('gulp-postcss'),
+  runSequence = require('run-sequence'),
+  sass = require('gulp-sass'),
+  source = require('vinyl-source-stream'),
+  sourcemaps = require('gulp-sourcemaps'),
+  uglify = require('gulp-uglify'),
+  useref = require('gulp-useref');
 
-/* Path Configurations */
-const entryPoint = 'src/scripts/main.js',
-  browserDir = 'src',
-  sassWatchPath = 'src/scss/**/*.scss',
-  jsWatchPath = 'src/scripts/**/*.js',
-  htmlWatchPath = 'src/**/*.html',
-  fontWatchPath = 'src/fonts/**/*',
-  imageWatchPath = 'src/images/**/*.+(png|jpg|gif|svg)';
+const config = {
+  src: {
+    root: 'src',
+    css: 'src/css',
+    entryPoint: 'src/scripts/main.js',
+    htmlWatch: 'src/**/*.html',
+    sassWatch: 'src/scss/**/*.scss',
+    jsWatch: 'src/scripts/**/*.js',
+    fontWatch: 'src/fonts/**/*',
+    imageWatch: 'src/images/**/*.+(png|jpg|gif|svg)'
+  },
+  dist: {
+    root: 'dist',
+    fonts: 'dist/fonts',
+    images: 'dist/images'
+    // CSS and JS configuration needed in HTML file for gulp-useref
+  }
+};
 
-gulp.task('browserSync', () => {
-  browserSync.init({
-    server: {
-      baseDir: browserDir
-    },
-  })
-});
-
-gulp.task('useref', () => {
-  return gulp.src(htmlWatchPath)
-    .pipe(useref())
-    .pipe(gulpIf('*.js', uglify()))
-    .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulp.dest('dist'))
-});
-
-gulp.task('images', () => {
-  return gulp.src(imageWatchPath)
-  .pipe(cache(imagemin({
-      interlaced: true
-    })))
-  .pipe(gulp.dest('dist/images'))
-});
-
-gulp.task('fonts', () => {
-  return gulp.src(fontWatchPath)
-    .pipe(gulp.dest('dist/fonts'))
-});
-
+/* JS Pre-processing */
 gulp.task('js', () => {
-  return browserify(entryPoint, {
+  return browserify(config.src.entryPoint, {
       debug: true,
       extensions: ['es6']
     })
@@ -69,57 +51,84 @@ gulp.task('js', () => {
       loadMaps: true
     }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest(config.dist.root));
 });
 
-
+// Ensure browserSync reloads after Pre-processing is complete
 gulp.task('js-watch', ['js'], () => {
     browserSync.reload();
 });
 
-
+/* CSS Pre-Processing */
 gulp.task('sass', () => {
-  return gulp.src(sassWatchPath)
+  return gulp.src(config.src.sassWatch)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([ autoprefixer() ]))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./src/css'));
+    .pipe(gulp.dest(config.src.css));
 });
 
-
+// Ensure browserSync reloads after Pre-processing is complete
 gulp.task('sass-watch', ['sass'], () => {
     browserSync.reload();
 });
 
+/* Concatinate and Minify JS and CSS Files to Dist */
+gulp.task('useref', () => {
+  return gulp.src(config.src.htmlWatch)
+    .pipe(useref())
+    .pipe(gulpIf('*.js', uglify()))
+    .pipe(gulpIf('*.css', cssnano()))
+    .pipe(gulp.dest(config.dist.root))
+});
 
+/* Minify Images */
+gulp.task('images', () => {
+  return gulp.src(config.src.imageWatch)
+  .pipe(cache(imagemin({
+      interlaced: true
+    })))
+  .pipe(gulp.dest(config.dist.images))
+});
+
+/* Move fonts to Dist */
+gulp.task('fonts', () => {
+  return gulp.src(config.src.fontWatch)
+    .pipe(gulp.dest(config.dist.fonts))
+});
+
+/* Cleanup */
 gulp.task('clean:dist', () => {
-  return del.sync('dist');
+  return del.sync(config.dist.root);
 })
 
-// use default task to launch Browsersync and watch JS and Sass files
+/********************WATCH********************/
+
+// Launch Browsersync and watch JS and Sass files
 gulp.task('watch', ['js', 'sass'], () => {
 
   browserSync.init({
     server: {
-      baseDir: browserDir
+      baseDir: config.src.root
     }
   });
 
   // add browserSync.reload to the tasks array to make
   // all browsers reload after tasks are complete.
   // html doesn't need a watcher because it has no pre-processing
-  gulp.watch(jsWatchPath, ['js-watch']);
-  gulp.watch(sassWatchPath, ['sass-watch']);
-  gulp.watch(htmlWatchPath, () => {
+  gulp.watch(config.src.jsWatch, ['js-watch']);
+  gulp.watch(config.src.sassWatch, ['sass-watch']);
+  gulp.watch(config.src.htmlWatch, () => {
       browserSync.reload();
   });
 });
 
-// BUILD
+/********************BUILD********************/
+
 gulp.task('build', (callback) => {
   runSequence('clean:dist',
-    ['js', 'sass', 'useref', 'images', 'fonts', 'browserSync'],
+    ['js', 'sass', 'useref', 'images', 'fonts'],
     callback
   )
 });
