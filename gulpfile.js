@@ -35,7 +35,22 @@ const config = {
   }
 };
 
-/* JS Pre-processing */
+/* CSS Pre-Processing */
+gulp.task('sass', () => {
+  return gulp.src(config.src.sassWatch)
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([ autoprefixer() ]))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(config.src.css));
+});
+
+// Ensure browserSync reloads after tasks are complete
+gulp.task('sass-watch', ['sass'], () => {
+    browserSync.reload();
+});
+
+/* JS Browserify and Build */
 gulp.task('js', () => {
   return browserify(config.src.entryPoint, {
       debug: true,
@@ -54,23 +69,8 @@ gulp.task('js', () => {
     .pipe(gulp.dest(config.dist.root));
 });
 
-// Ensure browserSync reloads after Pre-processing is complete
+// Ensure browserSync reloads after tasks are complete
 gulp.task('js-watch', ['js'], () => {
-    browserSync.reload();
-});
-
-/* CSS Pre-Processing */
-gulp.task('sass', () => {
-  return gulp.src(config.src.sassWatch)
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([ autoprefixer() ]))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.src.css));
-});
-
-// Ensure browserSync reloads after Pre-processing is complete
-gulp.task('sass-watch', ['sass'], () => {
     browserSync.reload();
 });
 
