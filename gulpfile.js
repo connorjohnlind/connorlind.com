@@ -20,10 +20,10 @@ const config = {
   src: {
     root: 'src',
     css: 'src/css',
-    entryPoint: 'src/scripts/main.js',
+    entryPoint: 'src/js/main.js',
     htmlWatch: 'src/**/*.html',
     sassWatch: 'src/scss/**/*.scss',
-    jsWatch: 'src/scripts/**/*.js',
+    jsWatch: 'src/js/**/*.js',
     fontWatch: 'src/fonts/**/*',
     imageWatch: 'src/images/**/*.+(png|jpg|gif|svg)'
   },
