@@ -24,13 +24,16 @@ const config = {
     htmlWatch: 'src/**/*.html',
     sassWatch: 'src/scss/**/*.scss',
     jsWatch: 'src/js/**/*.js',
+    assetWatch: 'src/js/assets/*',
     fontWatch: 'src/fonts/**/*',
     imageWatch: 'src/images/**/*.+(png|jpg|gif|svg)'
   },
   dist: {
     root: 'dist',
+    assets: 'dist/js/assets',
     fonts: 'dist/fonts',
     images: 'dist/images'
+
     // CSS and JS configuration needed in HTML file for gulp-useref
   }
 };
@@ -92,10 +95,16 @@ gulp.task('images', () => {
   .pipe(gulp.dest(config.dist.images))
 });
 
-/* Move fonts to Dist */
+/* Move Fonts to Dist */
 gulp.task('fonts', () => {
   return gulp.src(config.src.fontWatch)
     .pipe(gulp.dest(config.dist.fonts))
+});
+
+/* Move JS Assets to Dist */
+gulp.task('assets', () => {
+  return gulp.src(config.src.assetWatch)
+    .pipe(gulp.dest(config.dist.assets))
 });
 
 /* Cleanup */
@@ -119,6 +128,9 @@ gulp.task('watch', ['js', 'sass'], () => {
   // html doesn't need a watcher because it has no pre-processing
   gulp.watch(config.src.jsWatch, ['js-watch']);
   gulp.watch(config.src.sassWatch, ['sass-watch']);
+  gulp.watch(config.src.assetWatch, () => {
+      browserSync.reload();
+  });
   gulp.watch(config.src.htmlWatch, () => {
       browserSync.reload();
   });
@@ -126,9 +138,9 @@ gulp.task('watch', ['js', 'sass'], () => {
 
 /********************BUILD********************/
 
-gulp.task('build', (callback) => {
+gulp.task('build', () => {
   runSequence('clean:dist',
-    ['js', 'sass', 'useref', 'images', 'fonts'],
-    callback
+    ['js', 'sass'],
+    ['useref', 'images', 'fonts', 'assets']
   )
 });
