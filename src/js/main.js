@@ -1,43 +1,39 @@
-$(function() {
+/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+particlesJS.load('particles-js', './js/assets/particles.json', function() {
+  console.log('callback - particles-js config loaded');
+});
 
-  /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-  particlesJS.load('particles-js', './js/assets/particles.json', function() {
-    console.log('callback - particles-js config loaded');
-  });
+// isMobile
+var isMobile;
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  isMobile = true;
 
-  // isMobile
-  var isMobile;
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    isMobile = true;
+  // Mobile height fix
+  $('.height-fix').each(function() {
+    var h = $(this).height();
+    $(this).height(h)
+  })
+}
 
-    // Mobile height fix
-    $('.height-fix').each(function() {
-      var h = $(this).height();
-      $(this).height(h)
-    })
+/*****NAVIGATION*****/
+
+var navPos = $('nav').position().top;
+
+function highlightLink(href) {
+  var $anchor = $('a[href="' + href + '"]');
+  $('.active').removeClass('active');
+  $($anchor).addClass('active');
+}
+
+$(window).scroll(function(){
+
+  // Fixing Navigation Bar
+  if ($(this).scrollTop() > navPos) {
+    $('nav').addClass("fixed");
+  } else {
+    $('nav').removeClass("fixed");
   }
 
-  // Navigation
-  var navPos = $('nav').position().top;
-  var lastPos = 0;
-  var lockTimer
-
-  $(window).on('scroll', function() {
-
-    var pos = $(window).scrollTop();
-    var pos2 = pos + 50;
-    var scrollBottom = pos + $(window).height();
-
-
-    if (pos >= navPos && lastPos < pos) {
-      $('nav').addClass('fixed');
-    }
-    if (pos < navPos && lastPos > pos) {
-      $('nav').removeClass('fixed');
-    }
-    lastPos = pos;
-
-  });
-
+  //Link Hilighting
 
 });

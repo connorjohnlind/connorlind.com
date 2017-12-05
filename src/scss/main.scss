@@ -58,6 +58,11 @@ section .section {
 a {
   color: inherit;
   text-decoration: none;
+
+  &.active {
+    color: green;
+  }
+
 }
 
 nav {
