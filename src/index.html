@@ -18,134 +18,140 @@
 </head>
 
 <body>
+
   <!-- HOME -->
-  <section id="home">
+  <header id="home" class="flex">
+    <div class="flex">
+      <div id="particles-js">
+      </div>
+      <div class="flex">
+        <h1 class="header fade-in">Hello there, I'm <span>Connor Lind</span>,<br/>a full-stack web developer!</h1>
+        <a href="#about"><button class="button fade-in" dest="about"><i class="mdi mdi-arrow-right"></i></button></a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="flex">
+    <div class="flex row nav-wrap">
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#portfolio">PORTFOLIO</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </nav>
+
+  <div id="main">
+
+    <!-- ABOUT -->
+    <section id="about">
       <div class="flex section">
-        <div id="particles-js">
-        </div>
-        <div class="flex">
-          <h1 class="header fade-in">Hello there, I'm <span>Connor Lind</span>,<br/>a full-stack web developer!</h1>
-          <a href="#about"><button class="button fade-in" dest="about"><i class="mdi mdi-arrow-right"></i></button></a>
-        </div>
-        <nav class="flex">
-          <div class="flex row nav-wrap">
-            <a href="#home">HOME</a>
-            <a href="#about">ABOUT</a>
-            <a href="#portfolio">PORTFOLIO</a>
-            <a href="#contact">CONTACT</a>
-          </div>
-        </nav>
-    </div>
-  </section>
+        <h2 class="header">ABOUT</h2>
+        <div class="header-bar"></div>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="flex section">
-      <h2 class="header">ABOUT</h2>
-      <div class="header-bar"></div>
-
-      <!-- Features -->
-      <div class="flex row-break">
-        <div class="flex row">
-          <div class="feature">
-            <div class="flex icon">
-              <i class="mdi mdi-speedometer"></i>
+        <!-- Features -->
+        <div class="flex row-break">
+          <div class="flex row">
+            <div class="feature">
+              <div class="flex icon">
+                <i class="mdi mdi-speedometer"></i>
+              </div>
+              <h3 class="label">Performance</h3>
+              <p>Developing lean products with a priority for performance optimzation. </p>
             </div>
-            <h3 class="label">Performance</h3>
-            <p>Developing lean products with a priority for performance optimzation. </p>
+            <div class="feature">
+              <div class="flex icon">
+                <i class="mdi mdi-wrench"></i>
+              </div>
+              <h3 class="label">Reliability</h3>
+              <p>Responsive across a myriad of device sizes. Cross-browser compatible and tested.</p>
+            </div>
           </div>
-          <div class="feature">
-            <div class="flex icon">
-              <i class="mdi mdi-wrench"></i>
+          <div class="flex row">
+            <div class="feature">
+              <div class="flex icon">
+                <i class="mdi mdi-lightbulb-on"></i>
+              </div>
+              <h3 class="label">Innovation</h3>
+              <p>Abreast of market trends and standards to maximize product lifespan.</p>
             </div>
-            <h3 class="label">Reliability</h3>
-            <p>Responsive across a myriad of device sizes. Cross-browser compatible and tested.</p>
+            <div class="feature">
+              <div class="flex icon">
+                <i class="mdi mdi-message-bulleted"></i>
+              </div>
+              <h3 class="label">Communication</h3>
+              <p>Collaborative with individuals and teams. Organized and annotated code.</p>
+            </div>
           </div>
         </div>
-        <div class="flex row">
-          <div class="feature">
-            <div class="flex icon">
-              <i class="mdi mdi-lightbulb-on"></i>
+
+        <!-- Profile -->
+        <div class="flex row-break profile">
+          <div class="flex">
+            <div class="profile-picture-wrap">
+              <div class="profile-picture">
+              </div>
             </div>
-            <h3 class="label">Innovation</h3>
-            <p>Abreast of market trends and standards to maximize product lifespan.</p>
           </div>
-          <div class="feature">
-            <div class="flex icon">
-              <i class="mdi mdi-message-bulleted"></i>
+          <div class="flex">
+            <div class="about-me">
+              <p>This is a branchName test #4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
-            <h3 class="label">Communication</h3>
-            <p>Collaborative with individuals and teams. Organized and annotated code.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="flex section">
+        <h2 class="header">PORTFOLIO</h2>
+        <div class="header-bar"></div>
+        <div class="flex portfolio">
+          <div class="flex row filter-nav">
+            <div class="filter">ALL</div>
+            <div class="filter">REACT</div>
+            <div class="filter">NODE</div>
+            <div class="filter">DESIGN</div>
+          </div>
+          <div class="flex row wrap project-wrap">
+            <div class="project">
+            </div>
+            <div class="project">
+            </div>
+            <div class="project">
+            </div>
+            <div class="project">
+            </div>
+            <div class="project">
+            </div>
+            <div class="project">
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Profile -->
-      <div class="flex row-break profile">
-        <div class="flex">
-          <div class="profile-picture-wrap">
-            <div class="profile-picture">
-            </div>
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="flex section">
+        <h2 class="header">CONTACT</h2>
+        <div class="header-bar"></div>
+        <div class="text">Like what you see? Let's work together.</div>
+        <form id="contact-form" action="https://formspree.io/connorjohnlind@gmail.com" method="POST">
+          <input placeholder="Name" type="text" name="name" required>
+          <input placeholder="Email" type="email" name="email" required>
+          <textarea placeholder="Your Message" type="text" name="message"></textarea>
+          <div id="success">
+            <div>Your message was sent successfully. Thanks!<span id="close"></span></div>
           </div>
-        </div>
-        <div class="flex">
-          <div class="about-me">
-            <p>This is a branchName test #4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-        </div>
+          <input class="button" type="submit" id="submit" value="Submit">
+        </form>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <div class="flex section">
-      <h2 class="header">PORTFOLIO</h2>
-      <div class="header-bar"></div>
-      <div class="flex portfolio">
-        <div class="flex row filter-nav">
-          <div class="filter">ALL</div>
-          <div class="filter">REACT</div>
-          <div class="filter">NODE</div>
-          <div class="filter">DESIGN</div>
-        </div>
-        <div class="flex row wrap project-wrap">
-          <div class="project">
-          </div>
-          <div class="project">
-          </div>
-          <div class="project">
-          </div>
-          <div class="project">
-          </div>
-          <div class="project">
-          </div>
-          <div class="project">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="flex section">
-      <h2 class="header">CONTACT</h2>
-      <div class="header-bar"></div>
-      <div class="text">Like what you see? Let's work together.</div>
-      <form id="contact-form" action="https://formspree.io/connorjohnlind@gmail.com" method="POST">
-        <input placeholder="Name" type="text" name="name" required>
-        <input placeholder="Email" type="email" name="email" required>
-        <textarea placeholder="Your Message" type="text" name="message"></textarea>
-        <div id="success">
-          <div>Your message was sent successfully. Thanks!<span id="close"></span></div>
-        </div>
-        <input class="button" type="submit" id="submit" value="Submit">
-      </form>
-    </div>
-  </section>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -172,10 +178,7 @@
   </footer>
 
   <!--build:js js/main.min.js -->
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="js/particles.js"></script>
   <script src="js/main.js"></script>
   <!-- endbuild -->

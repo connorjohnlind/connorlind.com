@@ -6,6 +6,10 @@
 @import 'base/materialdesignicons.scss';
 
 /* ============== GLOBAL ================ */
+* {
+  box-sizing: border-box;
+}
+
 .fade-in {
   animation: fadeIn 2s ease both;
 }
@@ -28,6 +32,10 @@
 
 .row-break {
   width: 100%;
+}
+
+#main {
+  padding-top: 80px;
 }
 
 body {
@@ -68,9 +76,11 @@ a {
 nav {
   bottom: 0;
   left: 0;
-  position: absolute;
+  position: relative;
   height: 50px;
   width: 100%;
+  margin-bottom: -50px;
+  color: white;
   background: #1B242F;
   border-bottom: 3px solid green;
   text-align: left;
@@ -180,10 +190,7 @@ nav.fixed {
   background: #1B342F;
   color: #fff;
   padding: 0px;
-}
-
-#home .section {
-  height: calc(100vh + 53px);
+  height: 100vh;
   line-height: 20pt;
 }
 
