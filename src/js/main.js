@@ -17,7 +17,8 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 /*****NAVIGATION*****/
 
-var navPos = $('nav').position().top;
+var homeBottom = $('nav').position().top;
+var navHeight = $('nav').height();
 
 function highlightLink(href) {
   var $anchor = $('a[href="' + href + '"]');
@@ -27,13 +28,23 @@ function highlightLink(href) {
 
 $(window).scroll(function(){
 
+  var pos = $(this).scrollTop();
+
   // Fixing Navigation Bar
-  if ($(this).scrollTop() > navPos) {
+  if (pos > homeBottom) {
     $('nav').addClass("fixed");
   } else {
     $('nav').removeClass("fixed");
   }
 
   //Link Hilighting
+  if (pos < homeBottom)
+    highlightLink('#home');
+  if (pos > $('#about').position().top - navHeight)
+    highlightLink('#about');
+  if (pos > $('#portfolio').position().top - navHeight)
+    highlightLink('#portfolio');
+  if (pos > $('#contact').position().top - navHeight)
+    highlightLink('#contact');
 
 });
