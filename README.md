@@ -1,18 +1,23 @@
-# Project Title
+# Connor Lind's Personal Website
 
-One Paragraph of project description goes here
+This website is a portfolio and sandbox for my development as a full-stack javascript engineer. I will implement new technologies here as I learn them.
 
-## Getting Started
+## Points Of Interest
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+The following are key areas of focus for the development of this application.
 
-### Prerequisites
+### The Gulpfile
 
-What things you need to install the software and how to install them
+The [gulpfile](https://github.com/connorjohnlind/connorlind.com/blob/master/gulpfile.js) is one of my key areas of focus for this application. This task manager is centered on the Node Ecosystem, and utilizes Browserify to implement all modules into production. The Gulpfile manages all of the following tasks:
 
-```
-Give examples
-```
+* [Browserify](https://github.com/browserify/browserify) -
+* [Babelify](https://github.com/babel/babelify) -
+* [Uglify](https://github.com/terinjokes/gulp-uglify) -
+* [Sass](https://github.com/dlmanning/gulp-sass) -
+* [Autoprefixer](https://github.com/postcss/autoprefixer) -
+* [CSS Nano](https://github.com/ben-eb/cssnano) -
+* [Sourcemaps](https://github.com/gulp-sourcemaps/gulp-sourcemaps) -
+* [Imagemin](https://github.com/sindresorhus/gulp-imagemin) -
 
 ### Installing
 
@@ -61,27 +66,3 @@ Add additional notes about how to deploy this on a live system
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
