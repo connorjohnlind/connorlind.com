@@ -31,11 +31,10 @@ const config = {
   },
   dist: {
     root: 'dist',
-    assets: 'dist/js/assets',
     images: 'dist/images',
-    htmlWatch: 'dist/**/*.html',
     js: 'dist/js',
-    css: 'dist/css'
+    css: 'dist/css',
+    htmlWatch: 'dist/**/*.html'
   }
 };
 
