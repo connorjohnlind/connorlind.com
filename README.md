@@ -1,6 +1,8 @@
 # Connor Lind's Personal Website
 
-This website is a portfolio and sandbox for my development as a full-stack javascript engineer. I will implement new technologies here as I learn them.
+[Connorlind.com](https://www.connorlind.com) is a sandbox for my development as a full-stack javascript engineer. I will implement new technologies here as I learn them.
+
+This website is built with ES6 Javascript, jQuery, and SaSS. It is currently hosted as a static website on Amazon S3.
 
 ## Points Of Interest
 
@@ -8,7 +10,7 @@ The following are key areas of focus for the development of this application.
 
 ### The Gulpfile
 
-The [gulpfile](https://github.com/connorjohnlind/connorlind.com/blob/master/gulpfile.js) is one of my key areas of focus for this application. This task manager is centered on the Node Ecosystem, and utilizes Browserify to implement all modules into production. The Gulpfile manages all of the following tasks:
+Optimizing the [gulpfile](https://github.com/connorjohnlind/connorlind.com/blob/master/gulpfile.js) is one of my key areas of focus for this application. This utilizes Browserify and the Node Ecosystem to implement, concatenate, and minify all modules into production. The Gulpfile manages all of the following technologies:
 
 * [Browserify](https://github.com/browserify/browserify) -
 * [Babelify](https://github.com/babel/babelify) -
@@ -19,50 +21,13 @@ The [gulpfile](https://github.com/connorjohnlind/connorlind.com/blob/master/gulp
 * [Sourcemaps](https://github.com/gulp-sourcemaps/gulp-sourcemaps) -
 * [Imagemin](https://github.com/sindresorhus/gulp-imagemin) -
 
-### Installing
+### Other Third-Party Technologies
 
-A step by step series of examples that tell you have to get a development env running
+In an effort to learn full-stack web development, I am keeping third-party libraries to a minimum. However, I have added the following tools into production:
 
-Say what the step will be
+* [Particles.js](https://github.com/VincentGarreau/particles.js/) - The canvas background for the site header, implemented via Browserify
+* [Material Design Icons](https://github.com/google/material-design-icons) - Google's Icon Library
 
-```
-Give the example
-```
+### Acknowledgements
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+While gaining a foundation with HTML and CSS was a huge area focus, I do not claim to have design expertise. The design for this website was heavily inspired by [Matthew Williams](http://findmatthew.com/). However, a look under the hood will show that my code is entirely different from Matthew's.
