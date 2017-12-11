@@ -16,27 +16,36 @@
     "url": "https://github.com/connorjohnlind/connorlind.com/issues"
   },
   "homepage": "https://github.com/connorjohnlind/connorlind.com#readme",
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
   "devDependencies": {
-    "autoprefixer": "^7.1.6",
+    "autoprefixer": "^7.2.2",
     "babel-core": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
     "babelify": "^8.0.0",
     "browser-sync": "^2.18.13",
     "browserify": "^14.5.0",
+    "cssnano": "^3.10.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-cache": "^1.0.1",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^4.0.0",
     "gulp-postcss": "^7.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
-    "gulp-useref": "^3.1.3",
+    "gulp-util": "^3.0.8",
     "run-sequence": "^2.2.0",
-    "sass": "^1.0.0-beta.3",
+    "sass": "^1.0.0-beta.4",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "jquery": "^3.2.1",
+    "particles.js": "^2.0.0"
   }
 }

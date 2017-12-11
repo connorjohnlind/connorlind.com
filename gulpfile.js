@@ -1,12 +1,16 @@
+// Copyright Connor Lind, 2017
+// src folder contains unprocessed Sass, JS, and images
+// dist folder contains production-ready HTML, Fonts, and JSON
+
 const autoprefixer = require('autoprefixer'),
+  babelify = require('babelify'),
   browserify = require('browserify'),
   browserSync = require('browser-sync').create(),
   buffer = require('vinyl-buffer'),
   cache = require('gulp-cache'),
-  cssnano = require('gulp-cssnano'),
+  cssnano = require('cssnano'),
   del = require('del'),
   gulp = require('gulp'),
-  gulpIf = require('gulp-if'),
   imagemin = require('gulp-imagemin'),
   postcss = require('gulp-postcss'),
   runSequence = require('run-sequence'),
@@ -14,97 +18,81 @@ const autoprefixer = require('autoprefixer'),
   source = require('vinyl-source-stream'),
   sourcemaps = require('gulp-sourcemaps'),
   uglify = require('gulp-uglify'),
-  useref = require('gulp-useref');
+  util = require('gulp-util');
 
 const config = {
   src: {
     root: 'src',
     css: 'src/css',
     entryPoint: 'src/js/main.js',
-    htmlWatch: 'src/**/*.html',
     sassWatch: 'src/scss/**/*.scss',
     jsWatch: 'src/js/**/*.js',
-    assetWatch: 'src/js/assets/*',
-    fontWatch: 'src/fonts/**/*',
     imageWatch: 'src/images/**/*.+(png|jpg|gif|svg)'
   },
   dist: {
     root: 'dist',
     assets: 'dist/js/assets',
-    fonts: 'dist/fonts',
-    images: 'dist/images'
-
-    // CSS and JS configuration needed in HTML file for gulp-useref
+    images: 'dist/images',
+    htmlWatch: 'dist/**/*.html',
+    js: 'dist/js',
+    css: 'dist/css'
   }
 };
 
-/* CSS Pre-Processing */
+/* CSS Build */
 gulp.task('sass', () => {
+  const plugins = [
+    autoprefixer(),
+    cssnano()
+  ];
+
   return gulp.src(config.src.sassWatch)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([ autoprefixer() ]))
+    .pipe(postcss(plugins))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.src.css));
+    .pipe(gulp.dest(config.dist.css));
 });
 
 // Ensure browserSync reloads after tasks are complete
-gulp.task('sass-watch', ['sass'], () => {
+gulp.task('sass-reload', ['sass'], () => {
     browserSync.reload();
 });
 
-/* JS Browserify and Build */
+/* JS Build */
 gulp.task('js', () => {
-  return browserify(config.src.entryPoint, {
-      debug: true,
-      extensions: ['es6']
-    })
-    .transform("babelify", {
-      presets: ["es2015"]
-    })
-    .bundle()
-    .pipe(source('bundle.js'))
+  const b = browserify({
+    entries: config.src.entryPoint,
+    debug: true,
+    transform: [babelify.configure({
+      presets: ['env']
+    })]
+  });
+
+  return b.bundle()
+    .pipe(source('main.js'))
     .pipe(buffer())
-    .pipe(sourcemaps.init({
-      loadMaps: true
-    }))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.dist.root));
+    .pipe(sourcemaps.init({ loadMaps: true }))
+      // Add other gulp transformations to the pipeline here.
+      .pipe(uglify())
+      .on('error', util.log)
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(config.dist.js));
 });
 
 // Ensure browserSync reloads after tasks are complete
-gulp.task('js-watch', ['js'], () => {
+gulp.task('js-reload', ['js'], () => {
     browserSync.reload();
 });
 
-/* Concatinate and Minify JS and CSS Files to Dist */
-gulp.task('useref', () => {
-  return gulp.src(config.src.htmlWatch)
-    .pipe(useref())
-    .pipe(gulpIf('*.js', uglify()))
-    .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulp.dest(config.dist.root))
-});
 
 /* Minify Images */
 gulp.task('images', () => {
   return gulp.src(config.src.imageWatch)
-  .pipe(cache(imagemin({
-      interlaced: true
-    })))
-  .pipe(gulp.dest(config.dist.images))
-});
-
-/* Move Fonts to Dist */
-gulp.task('fonts', () => {
-  return gulp.src(config.src.fontWatch)
-    .pipe(gulp.dest(config.dist.fonts))
-});
-
-/* Move JS Assets to Dist */
-gulp.task('assets', () => {
-  return gulp.src(config.src.assetWatch)
-    .pipe(gulp.dest(config.dist.assets))
+    .pipe(cache(imagemin({
+        interlaced: true
+      })))
+    .pipe(gulp.dest(config.dist.images))
 });
 
 /* Cleanup */
@@ -119,19 +107,16 @@ gulp.task('watch', ['js', 'sass'], () => {
 
   browserSync.init({
     server: {
-      baseDir: config.src.root
+      baseDir: config.dist.root
     }
   });
 
   // add browserSync.reload to the tasks array to make
   // all browsers reload after tasks are complete.
-  // html doesn't need a watcher because it has no pre-processing
-  gulp.watch(config.src.jsWatch, ['js-watch']);
-  gulp.watch(config.src.sassWatch, ['sass-watch']);
-  gulp.watch(config.src.assetWatch, () => {
-      browserSync.reload();
-  });
-  gulp.watch(config.src.htmlWatch, () => {
+  // html doesn't need a reloader because it has no pre-processing
+  gulp.watch(config.src.jsWatch, ['js-reload']);
+  gulp.watch(config.src.sassWatch, ['sass-reload']);
+  gulp.watch(config.dist.htmlWatch, () => {
       browserSync.reload();
   });
 });
@@ -140,7 +125,6 @@ gulp.task('watch', ['js', 'sass'], () => {
 
 gulp.task('build', () => {
   runSequence('clean:dist',
-    ['js', 'sass'],
-    ['useref', 'images', 'fonts', 'assets']
+    ['js', 'sass', 'images']
   )
 });

@@ -1,3 +1,11 @@
+// Browserify Imports
+import "babel-polyfill";
+import "particles.js";
+import $ from "jquery";
+
+// Module Imports
+
+
 /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
 particlesJS.load('particles-js', './js/assets/particles.json', function() {
   console.log('callback - particles-js config loaded');
