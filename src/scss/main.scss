@@ -6,6 +6,7 @@
 @import 'base/materialdesignicons.scss';
 
 /* ============== GLOBAL ================ */
+
 * {
   box-sizing: border-box;
 }
@@ -50,16 +51,15 @@ body {
 }
 
 section {
-  padding: 70px 0;
+  padding: 70px 0 90px;
   color: #616161;
-  line-height: 11pt;
   position: relative;
-}
 
-section .section {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+  &.section {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
 }
 
 a {
@@ -69,7 +69,6 @@ a {
   &.active {
     color: green;
   }
-
 }
 
 nav {
@@ -80,11 +79,11 @@ nav {
   width: 100%;
   margin-bottom: -50px;
   color: white;
-  background: #1B242F;
+  background: #162023;
   border-bottom: 3px solid green;
   text-align: left;
   z-index: 99;
-  font-family: "Raleway";
+  font-family: "Raleway-semibold";
 }
 
 nav.flex {
@@ -231,6 +230,7 @@ nav.fixed {
   padding: 0 10px;
   width: 95%;
   height: 220px;
+  font-size: 9pt;
 }
 
 .feature .icon {
@@ -270,134 +270,138 @@ nav.fixed {
 }
 /* ======================= PORTFOLIO ======================= */
 
-#portfoilo {
+#portfolio {
   background-color: #f5f5f5;
+
+  .header-bar {
+    margin-bottom: 50px;
+  }
 }
 
 .portfolio {
-  width: 100%;
+
+  width: 80%;
+  max-width:600px;
+
+  img {
+    min-width:150px;
+    width:50%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-top: 25px;
+  }
 }
 
-.filter-nav {
-  margin-bottom: 20px;
-  width: 95%;
-  max-width: 900px;
-  justify-content: space-between;
-}
 
-.filter {
-  width: 20%;
-  background-color: white;
-}
-
-.project-wrap {
-  width: 100%;
-}
-
-.project {
-  width: 100%;
-  height: 300px;
-  background-image: url("../images/thumb-1.jpg");
-  background-size: cover;
-}
 
 /* ======================= CONTACT ======================= */
+
 #contact {
-  background: #252934;
+  background: #162023;
   color: #fff;
+
+  .header {
+    color: #fff;
+  }
+
+  .header-bar {
+    margin-bottom: 60px;
+    background: #fff;
+    width: 110px;
+  }
+
+  .highlight {
+    font-weight: 600;
+    color: #04C2C9;
+  }
+
+  p {
+    font-size: 11pt;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  form {
+    margin: 40px auto 0;
+    width:92%;
+    max-width:500px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    display: block;
+    width: 100%;
+    outline: none;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background: #36544e;
+    font-size: 12pt;
+    margin-bottom: 3px;
+    color: #fff;
+  }
+
+  textarea {
+    min-height: 150px;
+    margin-bottom: 5px;
+  }
+
+  .button {
+    float: right;
+    margin: 5px 0 0;
+    font-size: 12pt;
+    padding: 10px 30px;
+    color: #fff;
+    background: transparent;
+    outline: 0;
+    border-radius: 5px;
+  }
+
+  .button:hover {
+    background: #04C2C9;
+  }
+
+  #success {
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    transition: height 0.25s;
+
+    &.expand {
+      height: 36px;
+    }
+
+    div {
+      background: #04c986;
+      color: #157051;
+      font-size: 10pt;
+      font-weight: 600;
+      padding: 5px 0;
+      border: 1px solid #157c59;
+    }
+  }
+
+  #close {
+    position: absolute;
+    padding: 5px 15px;
+    font-size: 12pt;
+    font-weight: 600;
+    right: 0;
+    cursor: pointer;
+  }
 }
 
-#contact .header {
-  color: #fff;
-}
 
-#contact .header-bar {
-  margin: 25px 0 70px;
-  background: #fff;
-  width: 110px;
-}
-
-#contact .highlight {
-  font-weight: 600;
-  color: #04C2C9;
-}
-
-#contact svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-#contact form {
-  margin: 40px auto 0;
-  min-width: 95%;
-}
-
-#contact input[type="text"],
-#contact input[type="email"],
-#contact textarea {
-  display: block;
-  width: 100%;
-  outline: none;
-  border: 0;
-  padding: 10px 15px;
-  background: #1E242C;
-  font-size: 12pt;
-  margin-bottom: 3px;
-  color: #fff;
-}
-
-#contact textarea {
-  min-height: 150px;
-  margin-bottom: 5px;
-}
-
-#contact .button {
-  float: right;
-  margin: 5px 0 0;
-  font-size: 12pt;
-  padding: 10px 30px;
-  color: #fff;
-  background: transparent;
-  outline: 0;
-}
-
-#contact .button:hover {
-  background: #04C2C9;
-}
-
-#contact #success {
-  height: 0;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  transition: height 0.25s;
-}
-
-#contact #success.expand {
-  height: 36px;
-}
-
-#contact #success div {
-  background: #04c986;
-  color: #157051;
-  font-size: 10pt;
-  font-weight: 600;
-  padding: 5px 0;
-  border: 1px solid #157c59;
-}
-
-#contact #close {
-  position: absolute;
-  padding: 5px 15px;
-  font-size: 12pt;
-  font-weight: 600;
-  right: 0;
-  cursor: pointer;
-}
 /* ======================= FOOTER ======================= */
+
 footer {
-  background: #1B242F;
+  background: #1b342f;
   padding: 70px 0 50px;
   position: relative;
   color: white;
@@ -430,7 +434,7 @@ footer .icon-wrap .icon {
   position: relative;
   text-align: center;
   margin: 0 15px;
-  background: #262F38;
+  background: #162023;
   font-size: 18pt;
   border-radius: 30%;
 }
@@ -462,13 +466,6 @@ footer .footnote span {
   color: green;
 }
 
-/* ======================= RESPONSIVE: PHABLET (401px) ======================= */
-
-@media screen and (min-width: 401px) {
-  .project {
-    width: 50%;
-  }
-}
 
 /* ======================= RESPONSIVE: TABLET (600px) ======================= */
 
@@ -501,20 +498,29 @@ footer .footnote span {
     border: 2px solid white;
   }
 
-  #contact form {
-    min-width: 500px;
-  }
-
   .feature {
     height: 300px;
-
     p {
       width: 90%;
       margin: 0 auto;
     }
   }
+
+  #portfolio {
+    h2 {
+      line-height: 25pt;
+    }
+  }
+
+  #contact {
+    p {
+      font-size: 13pt;
+    }
+  }
 }
+
 /* ======================= RESPONSIVE: DESKTOP (960px) ======================= */
+
 @media screen and (min-width: 960px) {
   .row-break {
     flex-direction: row;
@@ -540,7 +546,9 @@ footer .footnote span {
     width: 100%;
   }
 }
+
 /* ==================== RESPONSIVE: LARGE DESKTOP (1185px) ==================== */
+
 @media screen and (min-width: 1185px) {
   .portfolio {
     width: 100%;
