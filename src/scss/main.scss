@@ -84,6 +84,7 @@ nav {
   text-align: left;
   z-index: 99;
   font-family: "Raleway-semibold";
+  font-size:10pt;
 }
 
 nav.flex {
@@ -99,9 +100,9 @@ nav.fixed {
 
 .nav-wrap {
   justify-content: space-between;
-  width: 32%;
   min-width: 300px;
-  max-width: 700px;
+  width: 65%;
+  max-width: 600px;
 }
 
 .header {
@@ -449,6 +450,10 @@ footer {
 @media screen and (min-width: 600px) {
   body {
     font-size: 12pt;
+  }
+
+  nav {
+    font-size:12pt;
   }
 
   .header {
