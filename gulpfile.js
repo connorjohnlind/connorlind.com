@@ -9,11 +9,9 @@ const autoprefixer = require('autoprefixer'),
   buffer = require('vinyl-buffer'),
   cache = require('gulp-cache'),
   cssnano = require('cssnano'),
-  del = require('del'),
   gulp = require('gulp'),
   imagemin = require('gulp-imagemin'),
   postcss = require('gulp-postcss'),
-  runSequence = require('run-sequence'),
   sass = require('gulp-sass'),
   source = require('vinyl-source-stream'),
   sourcemaps = require('gulp-sourcemaps'),
@@ -94,15 +92,11 @@ gulp.task('images', () => {
     .pipe(gulp.dest(config.dist.images))
 });
 
-/* Cleanup */
-gulp.task('clean:dist', () => {
-  return del.sync(config.dist.root);
-})
 
-/********************WATCH********************/
+/********************DEFAULT********************/
 
 // Launch Browsersync and watch JS and Sass files
-gulp.task('watch', ['js', 'sass'], () => {
+gulp.task('default', ['js', 'sass'], () => {
 
   browserSync.init({
     server: {
@@ -122,8 +116,5 @@ gulp.task('watch', ['js', 'sass'], () => {
 
 /********************BUILD********************/
 
-gulp.task('build', () => {
-  runSequence('clean:dist',
-    ['js', 'sass', 'images']
-  )
+gulp.task('build', ['js', 'sass', 'images'], () => {
 });
