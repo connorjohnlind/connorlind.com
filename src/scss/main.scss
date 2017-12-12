@@ -189,23 +189,23 @@ nav.fixed {
   padding: 0px;
   height: 100vh;
   line-height: 20pt;
-}
 
-#home .header {
-  font-family: "Raleway";
-  font-size: 17pt;
-  font-weight: normal;
-  color: white;
-  margin: 0 0 20px;
-}
+  .header {
+    font-family: "Raleway";
+    font-size: 17pt;
+    font-weight: normal;
+    color: white;
+    margin: 0 0 20px;
+  }
 
-#home span {
-  color: green;
-  font-family: "Raleway-bold";
-}
+  span {
+    color: green;
+    font-family: "Raleway-bold";
+  }
 
-#home .button {
-  margin-bottom: 50px;
+  .button {
+    margin-bottom: 50px;
+  }
 }
 
 #particles-js {
@@ -224,26 +224,29 @@ nav.fixed {
   .section {
     padding: 0 10px;
   }
-}
 
-.feature {
-  padding: 0 10px;
-  width: 95%;
-  height: 220px;
-
-  .icon {
-    margin: auto;
-    width: 80px;
-    height: 80px;
-    font-size: 60pt;
-    color: #1B342F;
+  .features {
+    margin-bottom: 50px;
   }
 
-  p {
-    margin: 0 auto;
-    font-size: 9pt;
-  }
+  .feature {
+    padding: 0 10px;
+    width: 95%;
+    height: 220px;
 
+    .icon {
+      margin: auto;
+      width: 80px;
+      height: 80px;
+      font-size: 60pt;
+      color: #1B342F;
+    }
+
+    p {
+      margin: 0 auto;
+      font-size: 9pt;
+    }
+  }
 }
 
 /* ======================= PORTFOLIO ======================= */
@@ -254,23 +257,20 @@ nav.fixed {
   .header-bar {
     margin-bottom: 50px;
   }
-}
 
-.portfolio {
+  .portfolio {
+    width: 80%;
+    max-width:600px;
 
-  width: 80%;
-  max-width:600px;
-
-  img {
-    min-width:150px;
-    width:50%;
-    max-width: 400px;
-    border-radius: 10px;
-    margin-top: 25px;
+    img {
+      min-width:150px;
+      width:50%;
+      max-width: 400px;
+      border-radius: 10px;
+      margin-top: 25px;
+    }
   }
 }
-
-
 
 /* ======================= CONTACT ======================= */
 
@@ -383,67 +383,66 @@ footer {
   padding: 70px 0 50px;
   position: relative;
   color: white;
-}
 
-footer .mdi-chevron-double-up {
-  position: absolute;
-  top: -25px;
-  background: green;
-  font-size: 30pt;
-  width: 47px;
-  height: 50px;
-  line-height: 40pt;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  cursor: pointer;
-  border-radius: 50%;
-}
+  .mdi-chevron-double-up {
+    position: absolute;
+    top: -25px;
+    background: green;
+    font-size: 30pt;
+    width: 47px;
+    height: 50px;
+    line-height: 40pt;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 50%;
+  }
 
-footer .mdi-chevron-double-up:hover {
-  background: black;
-}
+  .mdi-chevron-double-up:hover {
+    background: black;
+  }
 
-footer .icon-wrap .icon {
-  overflow: hidden;
-  cursor: pointer;
-  width: 55px;
-  height: 55px;
-  position: relative;
-  text-align: center;
-  margin: 0 15px;
-  background: #162023;
-  font-size: 18pt;
-  border-radius: 30%;
-}
+  .icon-wrap .icon {
+    overflow: hidden;
+    cursor: pointer;
+    width: 55px;
+    height: 55px;
+    position: relative;
+    text-align: center;
+    margin: 0 15px;
+    background: #162023;
+    font-size: 18pt;
+    border-radius: 30%;
+  }
 
-footer .icon-wrap .mdi {
-  text-align: center;
-  color: #fff;
-}
+  .icon-wrap .mdi {
+    text-align: center;
+    color: #fff;
+  }
 
-footer .icon-wrap .icon:hover {
-  background: #04C2C9;
-  box-shadow: 0 0 0 3px rgba(4, 94, 201, 0.1);
-  transform: scale(0.9);
-}
+  .icon-wrap .icon:hover {
+    background: #04C2C9;
+    box-shadow: 0 0 0 3px rgba(4, 94, 201, 0.1);
+    transform: scale(0.9);
+  }
 
-footer .icon-wrap .icon:hover .mdi {
-  color: #fff;
-}
+  .icon-wrap .icon:hover .mdi {
+    color: #fff;
+  }
 
-footer .footnote {
-  font-size: 10pt;
-  color: #8F9AA7;
-  margin-top: 35px;
-  opacity: 0.6;
-}
+  .footnote {
+    font-size: 10pt;
+    color: #8F9AA7;
+    margin-top: 35px;
+    opacity: 0.6;
 
-footer .footnote span {
-  font-family: 'Open Sans';
-  color: green;
+    span {
+      font-family: 'Open Sans';
+      color: green;
+    }
+  }
 }
-
 
 /* ======================= RESPONSIVE: TABLET (600px) ======================= */
 
@@ -466,6 +465,11 @@ footer .footnote span {
     margin-bottom: 10px;
   }
 
+  .button {
+    font-size: 14pt;
+    border: 2px solid white;
+  }
+
   #home {
     .header {
       font-size: 30pt;
@@ -473,17 +477,14 @@ footer .footnote span {
     }
   }
 
-  .button {
-    font-size: 14pt;
-    border: 2px solid white;
-  }
-
-  .feature {
-    height: 300px;
-    p {
-      width: 90%;
-      margin: 0 auto;
-      font-size: 12pt;
+  #about {
+    .feature {
+      height: 300px;
+      p {
+        width: 90%;
+        margin: 0 auto;
+        font-size: 12pt;
+      }
     }
   }
 
@@ -506,45 +507,10 @@ footer .footnote span {
   .row-break {
     flex-direction: row;
   }
-
-  .profile > div {
-    width: 50%;
-  }
-
-  .profile-picture-wrap {
-    margin-left: 30%;
-  }
-
-  .about-me {
-    margin-right: 25%;
-  }
-
-  .portfolio {
-    width: 85%;
-  }
-
-  .filter-nav {
-    width: 100%;
-  }
 }
 
 /* ==================== RESPONSIVE: LARGE DESKTOP (1185px) ==================== */
 
 @media screen and (min-width: 1185px) {
-  .portfolio {
-    width: 100%;
-  }
 
-  .project {
-    max-width: 390px;
-  }
-
-  .filter-nav {
-    width: 70%;
-  }
-
-  .blog {
-    max-width: 270px;
-    padding: 0 10px;
-  }
 }
