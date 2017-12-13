@@ -41,11 +41,11 @@ $(window).scroll(function(){
   //Link Hilighting
   if (pos < homeBottom)
     highlightLink('#home');
-  if (pos > $('#about').position().top - navHeight)
-    highlightLink('#anchor-about');
-  if (pos > $('#portfolio').position().top - navHeight)
-    highlightLink('#anchor-portfolio');
-  if (pos > $('#contact').position().top - navHeight)
-    highlightLink('#anchor-contact');
+  if (pos > $('#about-main').position().top - navHeight)
+    highlightLink('#about');
+  if (pos > $('#portfolio-main').position().top - navHeight)
+    highlightLink('#portfolio');
+  if (pos > $('#contact-main').position().top - navHeight)
+    highlightLink('#contact');
 
 });

@@ -105,10 +105,10 @@ nav.fixed {
 }
 
 a.anchor {
-    display: block;
-    position: relative;
-    top: -45px;
-    visibility: hidden;
+  display: block;
+  position: relative;
+  top: -45px;
+  visibility: hidden;
 }
 
 .nav-wrap {
@@ -232,7 +232,7 @@ a.anchor {
 
 /* ======================= ABOUT ======================= */
 
-#about {
+#about-main {
   background-color: white;
 
   .section {
@@ -274,7 +274,7 @@ a.anchor {
 
 /* ======================= PORTFOLIO ======================= */
 
-#portfolio {
+#portfolio-main {
 
   background-color: #f5f5f5;
 
@@ -306,7 +306,7 @@ a.anchor {
 
 /* ======================= CONTACT ======================= */
 
-#contact {
+#contact-main {
   background: #162023;
   color: #fff;
 
@@ -517,7 +517,7 @@ footer {
     }
   }
 
-  #about {
+  #about-main {
     .section {
       padding: 0 50px;
     }
@@ -532,13 +532,13 @@ footer {
     }
   }
 
-  #portfolio {
+  #portfolio-main {
     h2 {
       line-height: 25pt;
     }
   }
 
-  #contact {
+  #contact-main {
     p {
       font-size: 13pt;
     }
@@ -551,7 +551,7 @@ footer {
   .col-break {
     flex-direction: row;
   }
-  #about {
+  #about-main {
     .img-wrap {
       height: 60px;
     }
@@ -561,7 +561,7 @@ footer {
 /* ==================== RESPONSIVE: LARGE DESKTOP (1100px) ==================== */
 
 @media screen and (min-width: 1100px) {
-  #about {
+  #about-main {
     .img-wrap {
       height: 100px;
     }
