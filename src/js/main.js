@@ -4,7 +4,7 @@ import "particles.js";
 import $ from "jquery";
 
 // Module Imports
-
+// ...
 
 /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
 particlesJS.load('particles-js', './js/assets/particles.json', function() {
@@ -13,15 +13,8 @@ particlesJS.load('particles-js', './js/assets/particles.json', function() {
 
 // isMobile
 var isMobile;
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
   isMobile = true;
-
-  // Mobile height fix
-  $('.height-fix').each(function() {
-    var h = $(this).height();
-    $(this).height(h)
-  })
-}
 
 /*****NAVIGATION*****/
 
@@ -49,10 +42,10 @@ $(window).scroll(function(){
   if (pos < homeBottom)
     highlightLink('#home');
   if (pos > $('#about').position().top - navHeight)
-    highlightLink('#about');
+    highlightLink('#anchor-about');
   if (pos > $('#portfolio').position().top - navHeight)
-    highlightLink('#portfolio');
+    highlightLink('#anchor-portfolio');
   if (pos > $('#contact').position().top - navHeight)
-    highlightLink('#contact');
+    highlightLink('#anchor-contact');
 
 });
