@@ -1,6 +1,6 @@
 # Connor Lind's Personal Website
 
-[Connorlind.com](http://www.connorlind.com) is a sandbox for my development as a full-stack javascript engineer. I will implement new technologies here as I learn them.
+[Connorlind.com](http://www.connorlind.com) is a sandbox for my development as a full-stack Javascript engineer. I will implement new technologies here as I learn them.
 
 This website is built with ES6 Javascript, jQuery, and Sass. It is currently hosted as a static website on Amazon S3.
 
@@ -10,7 +10,7 @@ The following are key areas of focus for the development of this application.
 
 ### The Gulpfile
 
-The [gulpfile](https://github.com/connorjohnlind/connorlind.com/blob/master/gulpfile.js) utilizes Browserify and the Node Ecosystem to implement, concatenate, and minify all modules into production. The gulpfile manages all of the following technologies:
+The [gulpfile](https://github.com/connorjohnlind/connorlind.com/blob/master/gulpfile.js) utilizes Browserify and the Node Ecosystem to implement, concatenate, and minify all assets into production. The gulpfile manages all of the following technologies:
 
 * [Browserify](https://github.com/browserify/browserify) -
 * [Babelify](https://github.com/babel/babelify) -
@@ -25,8 +25,9 @@ The [gulpfile](https://github.com/connorjohnlind/connorlind.com/blob/master/gulp
 
 In an effort to learn full-stack web development, I am keeping third-party libraries to a minimum. However, I have added the following tools into production:
 
+* [jQuery](https://github.com/jquery/jquery) - Implemented via Browserify
 * [Particles.js](https://github.com/VincentGarreau/particles.js/) - The canvas background for the site header, implemented via Browserify
-* [Material Design Icons](https://github.com/google/material-design-icons) - Google's Icon Library
+* [Material Design Icons](https://github.com/google/material-design-icons) - Google's Icon Library, trimmed to a webfont and Sass file
 
 ## Acknowledgements
 

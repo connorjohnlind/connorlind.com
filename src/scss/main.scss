@@ -12,7 +12,7 @@
 }
 
 .fade-in {
-  animation: fadeIn 2s ease both;
+  animation: fadeIn 3s ease both;
 }
 
 .flex {
@@ -22,17 +22,22 @@
   align-items: center;
 }
 
+.flex.wrap {
+  flex-wrap: wrap;
+}
+
 .row {
   flex-direction: row;
   width: 100%;
 }
 
-.flex.wrap {
-  flex-wrap: wrap;
+.col {
+  width: 100%;
 }
 
-.row-break {
+.col-break {
   width: 100%;
+  max-width: 1200px;
 }
 
 #main {
@@ -226,13 +231,8 @@ nav.fixed {
     padding: 0 10px;
   }
 
-  .features {
-    margin-bottom: 50px;
-  }
-
   .feature {
     padding: 0 10px;
-    width: 95%;
     height: 220px;
 
     .icon {
@@ -245,8 +245,22 @@ nav.fixed {
 
     p {
       margin: 0 auto;
-      font-size: 9pt;
+      font-size: 10pt;
     }
+  }
+
+  .tech {
+    width:100%;
+  }
+
+  .img-wrap {
+      margin: 20px 10px;
+      height: 80px;
+      width: 100%;
+
+      img {
+        height:100%;
+      }
   }
 }
 
@@ -483,6 +497,10 @@ footer {
   }
 
   #about {
+    .section {
+      padding: 0 50px;
+    }
+
     .feature {
       height: 300px;
       p {
@@ -506,16 +524,25 @@ footer {
   }
 }
 
-/* ======================= RESPONSIVE: DESKTOP (960px) ======================= */
+/* ======================= RESPONSIVE: DESKTOP (800px) ======================= */
 
-@media screen and (min-width: 960px) {
-  .row-break {
+@media screen and (min-width: 800px) {
+  .col-break {
     flex-direction: row;
+  }
+  #about {
+    .img-wrap {
+      height: 60px;
+    }
   }
 }
 
-/* ==================== RESPONSIVE: LARGE DESKTOP (1185px) ==================== */
+/* ==================== RESPONSIVE: LARGE DESKTOP (1100px) ==================== */
 
-@media screen and (min-width: 1185px) {
-
+@media screen and (min-width: 1100px) {
+  #about {
+    .img-wrap {
+      height: 100px;
+    }
+  }
 }

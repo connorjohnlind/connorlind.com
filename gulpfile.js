@@ -51,7 +51,7 @@ gulp.task('sass', () => {
     .pipe(gulp.dest(config.dist.css));
 });
 
-// Ensure browserSync reloads after tasks are complete
+// browserSync reload after CSS tasks are complete
 gulp.task('sass-reload', ['sass'], () => {
     browserSync.reload();
 });
@@ -77,7 +77,7 @@ gulp.task('js', () => {
     .pipe(gulp.dest(config.dist.js));
 });
 
-// Ensure browserSync reloads after tasks are complete
+// browserSync reload after JS tasks are complete
 gulp.task('js-reload', ['js'], () => {
     browserSync.reload();
 });
@@ -95,7 +95,7 @@ gulp.task('images', () => {
 
 /********************DEFAULT********************/
 
-// Launch Browsersync and watch JS and Sass files
+// Launch browserSync and watch HTML, JS and Sass files for reload
 gulp.task('default', ['js', 'sass'], () => {
 
   browserSync.init({
@@ -106,7 +106,7 @@ gulp.task('default', ['js', 'sass'], () => {
 
   // add browserSync.reload to the tasks array to make
   // all browsers reload after tasks are complete.
-  // html doesn't need a reloader because it has no pre-processing
+  // html is reloaded from dist because it has no pre-processing
   gulp.watch(config.src.jsWatch, ['js-reload']);
   gulp.watch(config.src.sassWatch, ['sass-reload']);
   gulp.watch(config.dist.htmlWatch, () => {
