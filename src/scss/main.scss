@@ -59,6 +59,7 @@ section {
   padding: 70px 0 90px;
   color: #616161;
   position: relative;
+  line-height: 12pt;
 
   &.section {
     max-width: 1200px;
@@ -277,10 +278,18 @@ nav.fixed {
     width: 80%;
     max-width:600px;
 
-    img {
+    h2 {
+      font-weight: 600;
+    }
+
+    a {
       min-width:150px;
-      width:50%;
+      width:40%;
       max-width: 400px;
+    }
+
+    img {
+      width:100%;
       border-radius: 10px;
       margin-top: 25px;
     }
@@ -468,6 +477,10 @@ footer {
 
   nav {
     font-size:12pt;
+  }
+
+  section {
+    line-height: 16pt;
   }
 
   .header {
