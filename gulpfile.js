@@ -12,6 +12,7 @@ const autoprefixer = require('autoprefixer'),
   gulp = require('gulp'),
   imagemin = require('gulp-imagemin'),
   postcss = require('gulp-postcss'),
+  rename = require('gulp-rename'),
   sass = require('gulp-sass'),
   source = require('vinyl-source-stream'),
   sourcemaps = require('gulp-sourcemaps'),
@@ -48,6 +49,7 @@ gulp.task('sass', () => {
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
     .pipe(sourcemaps.write())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(config.dist.css));
 });
 
@@ -67,7 +69,7 @@ gulp.task('js', () => {
   });
 
   return b.bundle()
-    .pipe(source('main.js'))
+    .pipe(source('main.min.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
       // Add other gulp transformations to the pipeline here.
