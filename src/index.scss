@@ -1,9 +1,8 @@
-@import 'helpers/variables.scss';
-@import 'helpers/mixins.scss';
-@import 'base/normalize.scss';
-@import 'base/typography.scss';
-@import 'base/animations.scss';
-@import 'base/materialdesignicons.scss';
+@import './scss/normalize';
+@import './scss/variables';
+@import './scss/typography';
+@import './scss/animations';
+@import './scss/materialdesignicons';
 
 /* ============== GLOBAL ================ */
 
