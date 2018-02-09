@@ -3,6 +3,7 @@ import 'particles.js';
 import $ from 'jquery';
 
 import './index.scss';
+import favicon from './assets/favicon.ico';
 
 /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
 particlesJS.load('particles-js', './assets/particles.json', () => {
