@@ -3,6 +3,7 @@ const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
   filename: '[name].css',
@@ -93,7 +94,10 @@ module.exports = {
       filename: 'index.html',
       inject: 'body',
     }),
-    extractSass,
+    new CopyWebpackPlugin([
+      { from: 'src/assets/logos', to: 'images' },
+    ]),
     new webpack.optimize.UglifyJsPlugin(),
+    extractSass,
   ],
 };

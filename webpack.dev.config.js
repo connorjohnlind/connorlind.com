@@ -1,6 +1,7 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -87,14 +88,24 @@ module.exports = {
         loader: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=fonts/[name].[ext]',
       },
       {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        loader: 'file-loader?name=images/[name].[ext]',
+      },
+      {
         test: /\.(ico)$/, // favicon
         loader: 'file-loader?name=[name].[ext]',
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({
-    template: path.join(__dirname, '/src/index.html'),
-    filename: 'index.html',
-    inject: 'body',
-  })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, '/src/index.html'),
+      filename: 'index.html',
+      inject: 'body',
+    }),
+    new CopyWebpackPlugin([
+      { from: 'src/assets/logos', to: 'images' },
+      { from: 'src/assets/config', to: 'config' },
+    ]),
+  ],
 };
