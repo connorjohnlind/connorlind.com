@@ -3,16 +3,14 @@ import 'particles.js';
 import $ from 'jquery';
 
 import './index.scss';
-import favicon from './assets/favicon.ico';
+import './assets/fonts/Raleway/Raleway.scss';
+import './assets/fonts/MaterialDesignIcons/MaterialDesignIcons.scss';
+import favicon from './assets/favicon.png';
 
 /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
 particlesJS.load('particles-js', './assets/particles.json', () => {
   console.log('callback - particles-js config loaded');
 });
-
-// isMobile
-let isMobile;
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) { isMobile = true; }
 
 /** ***NAVIGATION**** */
 
