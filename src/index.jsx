@@ -5,7 +5,7 @@ import $ from 'jquery';
 import './index.scss';
 import './assets/fonts/Raleway/Raleway.scss';
 import './assets/fonts/MaterialDesignIcons/MaterialDesignIcons.scss';
-import favicon from './assets/favicon.png';
+import favicon from './assets/favicon.ico';
 
 /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
 particlesJS.load('particles-js', './assets/particles.json', () => {
