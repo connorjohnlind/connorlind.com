@@ -96,6 +96,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: 'src/assets/logos', to: 'images' },
+      { from: 'src/assets/json', to: 'json' },
     ]),
     new webpack.optimize.UglifyJsPlugin(),
     extractSass,
