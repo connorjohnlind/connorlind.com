@@ -4,7 +4,6 @@
   "description": "[Connorlind.com](http://www.connorlind.com) is a sandbox for my development as a full-stack Javascript engineer. I will implement new technologies here as I learn them.",
   "main": "src/index.jsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config webpack.dev.config.js",
     "build": "rimraf dist && webpack --config webpack.prod.config.js --progress --profile --color"
   },
