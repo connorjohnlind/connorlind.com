@@ -10,7 +10,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-require('./routes/surveyRoutes')(app);
+require('./routes/contactRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production assets
