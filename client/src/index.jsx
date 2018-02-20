@@ -2,8 +2,8 @@ import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './normalize.css';
-import './assets/fonts/Raleway/Raleway.css';
-import './index.css';
+import './assets/fonts/Raleway/Raleway.scss';
+import './index.scss';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
