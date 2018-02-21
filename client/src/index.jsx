@@ -1,26 +1,25 @@
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './normalize.css';
-import './assets/fonts/Raleway/Raleway.scss';
 import './index.scss';
+import './assets/fonts/Raleway/Raleway.scss';
+import favicon from './assets/favicon.ico'; // eslint-disable-line no-unused-vars
 import App from './components/App';
-import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
 
 /** ***NAVIGATION**** */
-$(function() {
+$(() => {
   const homeBottom = $('nav').position().top;
   const navHeight = $('nav').height();
 
-  function highlightLink(href) {
+  const highlightLink = (href) => {
     const $anchor = $(`a[href="${href}"]`);
     $('.active').removeClass('active');
     $($anchor).addClass('active');
-  }
+  };
 
+  /* eslint-disable func-names */
   $(window).scroll(function () {
     const pos = $(this).scrollTop();
 
@@ -37,4 +36,5 @@ $(function() {
     if (pos > $('#portfolio-main').position().top - navHeight) { highlightLink('#portfolio'); }
     if (pos > $('#contact-main').position().top - navHeight) { highlightLink('#contact'); }
   });
+  /* eslint-enable func-names */
 });

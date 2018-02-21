@@ -104,8 +104,7 @@ module.exports = {
       inject: 'body',
     }),
     new CopyWebpackPlugin([
-      // { from: 'src/assets/logos', to: 'images' },
-      // { from: 'src/assets/config', to: 'config' },
+      { from: 'src/assets/logos', to: 'images' },
     ]),
   ],
 };
