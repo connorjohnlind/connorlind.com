@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
+import './Contact.scss';
 
-const App = () => (
+const Contact = () => (
   <div>
     <div className="App">
       <header className="App-header">
@@ -14,4 +14,4 @@ const App = () => (
   </div>
 );
 
-export default App;
+export default Contact;

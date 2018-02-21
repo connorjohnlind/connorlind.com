@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import './assets/fonts/Raleway/Raleway.scss';
 import favicon from './assets/favicon.ico'; // eslint-disable-line no-unused-vars
-import App from './components/App';
+import Contact from './components/Contact';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Contact />, document.getElementById('contact-root'));
 
 /** ***NAVIGATION**** */
 $(() => {
