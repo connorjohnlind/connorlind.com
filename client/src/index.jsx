@@ -1,3 +1,5 @@
+import 'babel-polyfill';
+import 'particles.js';
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -7,6 +9,10 @@ import favicon from './assets/favicon.ico'; // eslint-disable-line no-unused-var
 import Contact from './components/Contact';
 
 ReactDOM.render(<Contact />, document.getElementById('contact-root'));
+
+particlesJS.load('particles-js', './config/particles.json', () => {
+  console.log('callback - particles-js config loaded');
+});
 
 /** ***NAVIGATION**** */
 $(() => {
