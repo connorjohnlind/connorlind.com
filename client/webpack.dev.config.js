@@ -31,17 +31,10 @@ module.exports = {
         use: [
           {
             loader: 'style-loader',
-            options: {
-              singleton: true,
-              sourceMap: true,
-            },
           },
           {
             loader: 'css-loader',
             options: {
-              // importLoaders: 1,
-              // modules: true,
-              // localIdentName: '[name]__[local]__[hash:base64:5]',
               sourceMap: true,
             },
           },
@@ -87,10 +80,10 @@ module.exports = {
         test: /\.eot$/,
         loader: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=fonts/[name].[ext]',
       },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/,
-        loader: 'file-loader?name=images/[name].[ext]',
-      },
+      // {
+      //   test: /\.(png|jpe?g|gif|svg)$/,
+      //   loader: 'file-loader?name=images/[name].[ext]',
+      // },
       {
         test: /\.(ico)$/, // favicon
         loader: 'file-loader?name=[name].[ext]',
