@@ -3,6 +3,7 @@ import 'particles.js';
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import './index.scss';
 import './assets/fonts/Raleway/Raleway.scss';
 import favicon from './assets/favicon.ico'; // eslint-disable-line no-unused-vars

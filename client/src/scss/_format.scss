@@ -1,0 +1,24 @@
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex.wrap {
+  flex-wrap: wrap;
+}
+
+.row {
+  flex-direction: row;
+  width: 100%;
+}
+
+.col {
+  width: 100%;
+}
+
+.col-break {
+  width: 100%;
+  max-width: 1200px;
+}
