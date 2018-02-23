@@ -11,7 +11,7 @@ import Contact from './components/Contact';
 
 // ReactDOM.render(<Contact />, document.getElementById('contact-root'));
 
-// particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
+particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
 
 // jQuery for scroll-then-fix nav bar
 $(() => {
