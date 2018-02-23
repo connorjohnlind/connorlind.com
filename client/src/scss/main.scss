@@ -243,34 +243,22 @@ a.anchor {
     margin-bottom: 5px;
   }
 
-  #success {
-    height: 0;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    transition: height 0.25s;
-
-    &.expand {
-      height: 36px;
-    }
-
-    div {
-      background: #04c986;
-      color: #157051;
-      font-size: 10pt;
-      font-weight: 600;
-      padding: 5px 0;
-      border: 1px solid #157c59;
-    }
-  }
-
-  #close {
-    position: absolute;
-    padding: 5px 15px;
-    font-size: 12pt;
-    font-weight: 600;
-    right: 0;
+  .contact-submit {
+    font-family: 'Raleway-Bold', 'Helvetica', 'sans-serif';
+    margin: 0px 5px;
+    width:80px;
+    height:30px;
+    border: none;
+    outline: none;
+    background-color: green;
+    border-radius: 3px;
     cursor: pointer;
+    color: white;
+    float: right;
+
+    &:hover {
+      background-color: grey;
+    }
   }
 }
 
@@ -282,25 +270,7 @@ footer {
   padding: 70px 0 50px;
   position: relative;
   color: white;
-
-  .mdi-chevron-double-up {
-    position: absolute;
-    top: -25px;
-    background: green;
-    font-size: 30pt;
-    width: 47px;
-    height: 50px;
-    line-height: 40pt;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    cursor: pointer;
-    border-radius: 50%;
-  }
-
-  .mdi-chevron-double-up:hover {
-    background: black;
-  }
+  border-bottom: 3px solid green;
 
   .icon-wrap .icon {
     overflow: hidden;
@@ -309,15 +279,10 @@ footer {
     height: 55px;
     position: relative;
     text-align: center;
-    margin: 0 15px;
+    margin: 0 15px 20px;
     background: #162023;
     font-size: 18pt;
     border-radius: 30%;
-  }
-
-  .icon-wrap .mdi {
-    text-align: center;
-    color: #fff;
   }
 
   .icon-wrap .icon:hover {
@@ -326,18 +291,14 @@ footer {
     transform: scale(0.9);
   }
 
-  .icon-wrap .icon:hover .mdi {
-    color: #fff;
-  }
-
   .footnote {
-    font-size: 10pt;
+    font-family: 'Raleway-Bold', 'Helvetica', 'sans-serif';
+    font-size: 11pt;
     color: #8F9AA7;
     margin-top: 35px;
     opacity: 0.6;
 
     span {
-      font-family: 'Open Sans';
       color: green;
     }
   }
