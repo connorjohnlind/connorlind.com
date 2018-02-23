@@ -1,86 +1,51 @@
-@import './animations';
-@import './base';
-@import './format';
-@import './variables';
+/* ======================= RESPONSIVE: IPHONE PLUS (414px) ======================= */
 
-
-//
-//  COMMENTED OUT IN INDEX!!!!!!!!!!!!!!!
-//
-
-/* ======================= RESPONSIVE: TABLET (600px) ======================= */
-
-@media screen and (min-width: 600px) {
-  body {
-    font-size: 12pt;
-  }
-
-  nav {
-    font-size:12pt;
-  }
-
-  section {
-    line-height: 16pt;
-  }
-
-  .header {
-    font-size: 30pt;
-  }
-
-  .header-bar {
-    margin: 25px 0 100px;
-  }
-
-  .label {
-    font-family: "Raleway-bold";
-    font-size: 18pt;
-    margin-bottom: 10px;
-  }
-
+@media screen and (min-width: 414px) {
   #home {
     .header {
-      font-size: 30pt;
-      line-height: 36pt;
-    }
-  }
-
-  #about-main {
-    .section {
-      padding: 0 50px;
-    }
-
-    .feature {
-      height: 300px;
-      p {
-        width: 90%;
-        margin: 0 auto;
-        font-size: 12pt;
-      }
-    }
-  }
-
-  #portfolio-main {
-    h2 {
-      line-height: 25pt;
-    }
-  }
-
-  #contact-main {
-    p {
-      font-size: 13pt;
+      font-size: 18pt;
     }
   }
 }
 
-/* ======================= RESPONSIVE: DESKTOP (800px) ======================= */
+/* ======================= RESPONSIVE: IPAD (768px) ======================= */
 
-@media screen and (min-width: 800px) {
-  .col-break {
+@media screen and (min-width: 768px) {
+  .col-to-row {
     flex-direction: row;
+  }
+  #home {
+    .header {
+      font-size: 22pt;
+      line-height: 30pt;
+    }
+    button {
+      padding: 5px 15px;
+      font-size: 20pt;
+    }
+  }
+  #about-main {
+    p {
+      font-size: 14pt;
+      line-height: 18pt;
+    }
+    .img-wrap {
+      height: 60px;
+    }
+  }
+}
+
+/* ======================= RESPONSIVE: DESKTOP (900px) ======================= */
+
+@media screen and (min-width: 900px) {
+  #home {
+    .header {
+      font-size: 24pt;
+    }
   }
   #about-main {
     .img-wrap {
-      height: 60px;
+      height: 70px;
     }
   }
 }
@@ -88,9 +53,14 @@
 /* ==================== RESPONSIVE: LARGE DESKTOP (1100px) ==================== */
 
 @media screen and (min-width: 1100px) {
+  #home {
+    .header {
+      font-size: 28pt;
+    }
+  }
   #about-main {
     .img-wrap {
-      height: 100px;
+      height: 80px;
     }
   }
 }

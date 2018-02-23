@@ -18,7 +18,11 @@
   width: 100%;
 }
 
-.col-break {
+.col-to-row {
   width: 100%;
   max-width: 1200px;
+}
+
+.space-between {
+  justify-content: space-between;
 }

@@ -11,12 +11,12 @@ import Contact from './components/Contact';
 
 // ReactDOM.render(<Contact />, document.getElementById('contact-root'));
 
-particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
+// particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
 
-/** ***NAVIGATION**** */
+// jQuery for scroll-then-fix nav bar
 $(() => {
-  const homeBottom = $('nav').position().top;
-  const navHeight = $('nav').height();
+  let homeBottom = $('nav').position().top;
+  let navHeight = $('nav').height();
 
   const highlightLink = (href) => {
     const $anchor = $(`a[href="${href}"]`);
@@ -24,22 +24,25 @@ $(() => {
     $($anchor).addClass('active');
   };
 
-  /* eslint-disable func-names */
+  /* eslint-disable func-names, prefer-arrow-callback */
   $(window).scroll(function () {
     const pos = $(this).scrollTop();
 
-    // Fixing Navigation Bar
     if (pos > homeBottom) {
       $('nav').addClass('fixed');
     } else {
       $('nav').removeClass('fixed');
     }
 
-    // Link Hilighting
     if (pos < homeBottom) { highlightLink('#home'); }
     if (pos > $('#about-main').position().top - navHeight) { highlightLink('#about'); }
     if (pos > $('#portfolio-main').position().top - navHeight) { highlightLink('#portfolio'); }
     if (pos > $('#contact-main').position().top - navHeight) { highlightLink('#contact'); }
   });
-  /* eslint-enable func-names */
+
+  $(window).resize(function () {
+    homeBottom = $('nav').position().top;
+    navHeight = $('nav').height();
+  });
+  /* eslint-enable func-names, prefer-arrow-callback */
 });

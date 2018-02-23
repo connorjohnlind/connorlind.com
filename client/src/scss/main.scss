@@ -1,8 +1,3 @@
-@import './animations';
-@import './base';
-@import './format';
-@import './variables';
-
 /* ======================= HOME ======================= */
 
 #home {
@@ -87,7 +82,6 @@ a.anchor {
 }
 
 .nav-wrap {
-  justify-content: space-between;
   min-width: 270px;
   width: 65%;
   max-width: 600px;
@@ -103,6 +97,7 @@ a.anchor {
 
 #about-main {
   background-color: white;
+  box-shadow: 30px rgba(13,13,18,0.2);
 
   .section {
     padding: 0 10px;
@@ -110,7 +105,7 @@ a.anchor {
 
   p {
     margin-bottom: 50px;
-    max-width: 500px;
+    max-width: 450px;
     width: 90%;
   }
 
@@ -180,7 +175,7 @@ a.anchor {
     }
 
     img {
-      width: 100%;
+      width: 80%;
     }
   }
 
@@ -219,7 +214,7 @@ a.anchor {
 
   form {
     margin: 40px auto 0;
-    width:92%;
+    width:90%;
     max-width:500px;
   }
 
