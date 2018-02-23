@@ -16,7 +16,7 @@ particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-l
 
 $(() => {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    const viewportHeight = $('#home').outerHeight();
+    const viewportHeight = $(window).innerHeight();
     $('#home').css({ height: viewportHeight });
   }
 
