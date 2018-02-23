@@ -2,11 +2,6 @@
   box-sizing: border-box;
 }
 
-#main {
-  padding-top: 80px;
-  z-index: 10;
-}
-
 body {
   color: #000;
   font-family: 'Raleway', 'Helvetica', 'sans-serif';
@@ -40,45 +35,19 @@ a {
   }
 }
 
-nav {
-  bottom: 0;
-  left: 0;
-  position: relative;
-  height: 50px;
-  width: 100%;
-  margin-bottom: -50px;
-  color: white;
-  background: #162023;
-  border-bottom: 3px solid green;
-  text-align: left;
-  z-index: 99;
-  font-family: "Raleway-semibold";
-  font-size:10pt;
+button {
+  background-color: blue;
+  padding: 10px 15px;
+  border: 1px solid #fff;
+  display: inline-block;
+  font-size: 25pt;
+  color: black;
+  cursor: pointer;
 }
 
-nav.flex {
-  align-items: center;
-}
-
-nav.fixed {
-  top: 0;
-  bottom: inherit;
-  left: 0;
-  position: fixed;
-}
-
-a.anchor {
-  display: block;
-  position: relative;
-  top: -45px;
-  visibility: hidden;
-}
-
-.nav-wrap {
-  justify-content: space-between;
-  min-width: 300px;
-  width: 65%;
-  max-width: 600px;
+button:hover {
+  background-color: green;
+  border-color: black;
 }
 
 .header {
@@ -94,66 +63,4 @@ a.anchor {
   width: 70px;
   height: 4px;
   background: #444649;
-}
-
-.label {
-  font-size: 14pt;
-  font-weight: 500;
-}
-
-.button {
-  background-color: transparent;
-  padding: 10px 15px;
-  border: 1px solid #fff;
-  display: inline-block;
-  font-size: 12pt;
-  color: white;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: green;
-  border-color: white;
-}
-
-.button .mdi {
-  vertical-align: middle;
-}
-
-.hex-wrap {
-  text-align: center;
-  position: relative;
-  display: inline-block;
-  width: 80px;
-  height: 80px;
-}
-
-.hex {
-  background-color: green;
-  height: 100%;
-  width: calc(100% * 0.57735);
-  display: inline-block;
-}
-
-.hex:before {
-  position: absolute;
-  top: 0;
-  right: calc((100% / 2) - ((100% * 0.57735) / 2));
-  background-color: inherit;
-  height: inherit;
-  width: inherit;
-  content: '';
-  transform: rotateZ(60deg);
-}
-
-.hex:after {
-  position: absolute;
-  top: 0;
-  right: calc((100% / 2) - ((100% * 0.57735) / 2));
-  background-color: inherit;
-  height: inherit;
-  width: inherit;
-  content: '';
-  transform: rotateZ(-60deg);
 }

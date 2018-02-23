@@ -25,8 +25,8 @@
     font-family: "Raleway-bold";
   }
 
-  .button {
-    margin-bottom: 50px;
+  button {
+    z-index: 100;
   }
 }
 
@@ -36,7 +36,55 @@
   left: 0;
   width: 100vw;
   height: 100%;
-  z-index: 0;
+}
+
+/* ======================= NAV ======================= */
+
+nav {
+  bottom: 0;
+  left: 0;
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-bottom: -50px;
+  color: white;
+  background: #162023;
+  border-bottom: 3px solid green;
+  text-align: left;
+  z-index: 99;
+  font-family: "Raleway-semibold";
+  font-size:10pt;
+}
+
+nav.flex {
+  align-items: center;
+}
+
+nav.fixed {
+  top: 0;
+  bottom: inherit;
+  left: 0;
+  position: fixed;
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -45px;
+  visibility: hidden;
+}
+
+.nav-wrap {
+  justify-content: space-between;
+  min-width: 300px;
+  width: 65%;
+  max-width: 600px;
+}
+
+/* ======================= MAIN ======================= */
+
+#main {
+  padding-top: 80px;
 }
 
 /* ======================= ABOUT ======================= */
@@ -98,18 +146,6 @@
     h2 {
       font-weight: 600;
     }
-
-    a {
-      min-width:150px;
-      width:40%;
-      max-width: 400px;
-    }
-
-    img {
-      width:100%;
-      border-radius: 10px;
-      margin-top: 25px;
-    }
   }
 }
 
@@ -168,21 +204,6 @@
   textarea {
     min-height: 150px;
     margin-bottom: 5px;
-  }
-
-  .button {
-    float: right;
-    margin: 5px 0 0;
-    font-size: 12pt;
-    padding: 10px 30px;
-    color: #fff;
-    background: transparent;
-    outline: 0;
-    border-radius: 5px;
-  }
-
-  .button:hover {
-    background: green;
   }
 
   #success {
