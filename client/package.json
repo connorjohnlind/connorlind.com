@@ -2,12 +2,16 @@
   "name": "connorlind.com",
   "version": "1.0.0",
   "main": "src/index.jsx",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5000"
+    }
+  },
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",
     "build": "rimraf dist && webpack --config webpack.prod.config.js"
   },
   "author": "Connor Lind",
-  "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.2.5",
     "babel-core": "^6.26.0",

@@ -80,10 +80,6 @@ module.exports = {
         test: /\.eot$/,
         loader: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=fonts/[name].[ext]',
       },
-      // {
-      //   test: /\.(png|jpe?g|gif|svg)$/,
-      //   loader: 'file-loader?name=images/[name].[ext]',
-      // },
       {
         test: /\.(ico)$/, // favicon
         loader: 'file-loader?name=[name].[ext]',

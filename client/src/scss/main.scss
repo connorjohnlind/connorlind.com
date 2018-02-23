@@ -138,14 +138,52 @@ a.anchor {
     margin-bottom: 50px;
   }
 
-  .portfolio {
-    width: 80%;
-    max-width:600px;
+  .project {
+    width:90%;
+    max-width: 350px;
+    margin-bottom: 20px;
+    padding: 0px 20px 15px 20px;
+    background-color: white;
+    box-shadow: 0px 8px 24px rgba(13,13,18,0.06);
+  }
 
-    h2 {
-      font-weight: 600;
+  .site-link {
+    font-family: 'Raleway-Bold', 'Helvetica', 'sans-serif';
+    margin: 0px 5px;
+    width:80px;
+    height:30px;
+    border: none;
+    outline: none;
+    background-color: green;
+    border-radius: 3px;
+    cursor: pointer;
+    color: white;
+
+    &:hover {
+      background-color: grey;
     }
   }
+
+  .github-link {
+    margin: 0px 5px;
+    width:80px;
+    height:30px;
+    border: none;
+    outline: none;
+    background-color: black;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: grey;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
 }
 
 /* ======================= CONTACT ======================= */

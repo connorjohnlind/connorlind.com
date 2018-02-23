@@ -9,11 +9,9 @@ import './assets/fonts/Raleway/Raleway.scss';
 import favicon from './assets/favicon.ico'; // eslint-disable-line no-unused-vars
 import Contact from './components/Contact';
 
-ReactDOM.render(<Contact />, document.getElementById('contact-root'));
+// ReactDOM.render(<Contact />, document.getElementById('contact-root'));
 
-particlesJS.load('particles-js', './config/particles.json', () => {
-  console.log('callback - particles-js config loaded');
-});
+particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
 
 /** ***NAVIGATION**** */
 $(() => {
