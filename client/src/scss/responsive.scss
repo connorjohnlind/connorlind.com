@@ -48,6 +48,11 @@
       height: 70px;
     }
   }
+  #portfolio-main {
+    .portfolio {
+      max-width: 800px;
+    }
+  }
 }
 
 /* ==================== RESPONSIVE: LARGE DESKTOP (1100px) ==================== */
@@ -61,6 +66,11 @@
   #about-main {
     .img-wrap {
       height: 80px;
+    }
+  }
+  #portfolio-main {
+    .portfolio {
+      
     }
   }
 }
