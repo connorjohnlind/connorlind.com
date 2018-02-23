@@ -13,10 +13,13 @@ import Contact from './components/Contact';
 
 particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
 
+window.$ = $;
+
 // jQuery for scroll-then-fix nav bar
 $(() => {
-  let homeBottom = $('nav').position().top;
-  let navHeight = $('nav').height();
+  const navHeight = $('nav').height();
+  let homeBottom = $('#main').position().top;
+  let pos = $(window).scrollTop();
 
   const highlightLink = (href) => {
     const $anchor = $(`a[href="${href}"]`);
@@ -24,9 +27,8 @@ $(() => {
     $($anchor).addClass('active');
   };
 
-  /* eslint-disable func-names, prefer-arrow-callback */
-  $(window).scroll(function () {
-    const pos = $(this).scrollTop();
+  const scrollThenFixNav = (window) => {
+    pos = $(window).scrollTop();
 
     if (pos > homeBottom) {
       $('nav').addClass('fixed');
@@ -34,15 +36,28 @@ $(() => {
       $('nav').removeClass('fixed');
     }
 
-    if (pos < homeBottom) { highlightLink('#home'); }
-    if (pos > $('#about-main').position().top - navHeight) { highlightLink('#about'); }
-    if (pos > $('#portfolio-main').position().top - navHeight) { highlightLink('#portfolio'); }
-    if (pos > $('#contact-main').position().top - navHeight) { highlightLink('#contact'); }
+    if (pos + $(window).height() === $(document).height()) { // page bottom
+      highlightLink('#contact');
+    } else if (pos > $('#contact-main').position().top - navHeight) {
+      highlightLink('#contact');
+    } else if (pos > $('#portfolio-main').position().top - navHeight) {
+      highlightLink('#portfolio');
+    } else if (pos > $('#about-main').position().top - navHeight) {
+      highlightLink('#about');
+    } else if (pos < homeBottom) {
+      highlightLink('#home');
+    }
+  };
+
+  /* eslint-disable func-names, prefer-arrow-callback */
+  $(window).resize(function () {
+    homeBottom = $('#main').position().top;
   });
 
-  $(window).resize(function () {
-    homeBottom = $('nav').position().top;
-    navHeight = $('nav').height();
+  $(window).scroll(function () {
+    scrollThenFixNav(this);
   });
   /* eslint-enable func-names, prefer-arrow-callback */
+
+  scrollThenFixNav(window); // if page is reloaded anywhere beyond Home section, call the menu fixer
 });
