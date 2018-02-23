@@ -11,12 +11,15 @@ import Contact from './components/Contact';
 
 // ReactDOM.render(<Contact />, document.getElementById('contact-root'));
 
+window.$ = $;
 particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
 
-window.$ = $;
-
-// jQuery for scroll-then-fix nav bar
 $(() => {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    const viewportHeight = $('#home').outerHeight();
+    $('#home').css({ height: viewportHeight });
+  }
+
   const navHeight = $('nav').height();
   let homeBottom = $('#main').position().top;
   let pos = $(window).scrollTop();
