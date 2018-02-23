@@ -7,7 +7,7 @@ body {
   font-family: 'Raleway', 'Helvetica', 'sans-serif';
   text-align: center;
   margin: 0;
-  font-size: 8pt;
+  font-size: 11pt;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -35,21 +35,6 @@ a {
   }
 }
 
-button {
-  background-color: blue;
-  padding: 10px 15px;
-  border: 1px solid #fff;
-  display: inline-block;
-  font-size: 25pt;
-  color: black;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: green;
-  border-color: black;
-}
-
 .header {
   font-size: 25pt;
   font-family: "Raleway-bold";
@@ -59,7 +44,7 @@ button:hover {
 }
 
 .header-bar {
-  margin: 25px 0 75px;
+  margin: 25px 0 50px;
   width: 70px;
   height: 4px;
   background: #444649;

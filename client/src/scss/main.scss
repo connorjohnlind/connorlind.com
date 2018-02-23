@@ -14,7 +14,7 @@
 
   .header {
     font-family: "Raleway";
-    font-size: 17pt;
+    font-size: 14pt;
     font-weight: normal;
     color: white;
     margin: 0 0 20px;
@@ -26,7 +26,19 @@
   }
 
   button {
+    background-color: transparent;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    display: inline-block;
+    font-size: 12pt;
+    color: white;
+    cursor: pointer;
     z-index: 100;
+    outline: none;
+  }
+
+  button:hover {
+    background-color: grey;
   }
 }
 
@@ -76,7 +88,7 @@ a.anchor {
 
 .nav-wrap {
   justify-content: space-between;
-  min-width: 300px;
+  min-width: 270px;
   width: 65%;
   max-width: 600px;
 }
@@ -96,22 +108,10 @@ a.anchor {
     padding: 0 10px;
   }
 
-  .feature {
-    padding: 0 10px;
-    height: 220px;
-
-    .icon {
-      margin: auto;
-      width: 80px;
-      height: 80px;
-      font-size: 60pt;
-      color: #1B342F;
-    }
-
-    p {
-      margin: 0 auto;
-      font-size: 10pt;
-    }
+  p {
+    margin-bottom: 50px;
+    max-width: 500px;
+    width: 90%;
   }
 
   .tech {
@@ -120,7 +120,7 @@ a.anchor {
 
   .img-wrap {
       margin: 20px 10px;
-      height: 80px;
+      height: 70px;
       width: 100%;
 
       img {
@@ -132,7 +132,6 @@ a.anchor {
 /* ======================= PORTFOLIO ======================= */
 
 #portfolio-main {
-
   background-color: #f5f5f5;
 
   .header-bar {
