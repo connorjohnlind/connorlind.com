@@ -1,11 +1,12 @@
+require('./config/config');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const mongoose = require('mongoose');
-const keys = require('./config/keys');
-require('./models/Contact');
 
-mongoose.connect(keys.mongoURI);
+// MongoDB
+require('./db/mongoose');
+require('./models/Contact');
 
 const app = express();
 
