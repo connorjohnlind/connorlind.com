@@ -3,17 +3,27 @@ import 'particles.js';
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
 import './index.scss';
 import './assets/fonts/Raleway/Raleway.scss';
 import favicon from './assets/favicon.ico'; // eslint-disable-line no-unused-vars
 import Contact from './components/Contact';
-
-// ReactDOM.render(<Contact />, document.getElementById('contact-root'));
+import reducers from './reducers';
 
 window.$ = $;
 particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
 
+// Redux Form for Contact
+const store = createStore(reducers);
+
+ReactDOM.render(
+  <Provider store={store}><Contact /></Provider>,
+  document.getElementById('contact-root'),
+);
+
+// jQuery
 $(() => {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     const viewportHeight = $(window).innerHeight();
@@ -39,7 +49,7 @@ $(() => {
       $('nav').removeClass('fixed');
     }
 
-    if (pos + $(window).height() === $(document).height()) { // page bottom
+    if (pos + $(window).height() === $(document).height()) {
       highlightLink('#contact');
     } else if (pos > $('#contact-main').position().top - navHeight) {
       highlightLink('#contact');
@@ -53,6 +63,7 @@ $(() => {
   };
 
   /* eslint-disable func-names, prefer-arrow-callback */
+  // jQuery didn't like some ES6 features :(
   $(window).resize(function () {
     homeBottom = $('#main').position().top;
   });
@@ -62,5 +73,6 @@ $(() => {
   });
   /* eslint-enable func-names, prefer-arrow-callback */
 
-  scrollThenFixNav(window); // if page is reloaded anywhere beyond Home section, call the menu fixer
+  // if page is reloaded anywhere beyond Home section, call the menu fixer
+  scrollThenFixNav(window);
 });

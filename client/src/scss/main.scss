@@ -20,6 +20,10 @@
     font-family: "Raleway-bold";
   }
 
+  a {
+    z-index: 100;
+  }
+
   button {
     background-color: transparent;
     padding: 5px 10px;
@@ -28,7 +32,6 @@
     font-size: 12pt;
     color: white;
     cursor: pointer;
-    z-index: 100;
     outline: none;
   }
 
