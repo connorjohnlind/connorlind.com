@@ -48,12 +48,8 @@ function validate(values) {
   return errors;
 }
 
-const mapStateToProps = state => ({
-  // ...
-});
-
 ContactForm = connect(
-  mapStateToProps,
+  null,
   actions,
 )(ContactForm);
 

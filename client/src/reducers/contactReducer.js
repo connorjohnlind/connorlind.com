@@ -2,18 +2,21 @@ import { CONTACT_SUCCESS, CONTACT_FAIL } from '../actions/types';
 import updateObject from '../utils/updateObject';
 
 const initialState = {
-  success: null,
+  complete: null,
+  error: null,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case CONTACT_SUCCESS:
       return updateObject(state, {
-        success: true,
+        complete: true,
+        error: null,
       });
     case CONTACT_FAIL:
       return updateObject(state, {
-        success: false,
+        complete: true,
+        error: action.payload,
       });
     default:
       return state;

@@ -4,7 +4,7 @@ import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 
 import './index.scss';
@@ -16,8 +16,12 @@ import reducers from './reducers';
 window.$ = $;
 particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
 
-// Redux Form for Contact
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+/* eslint-disable no-underscore-dangle */
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, /* preloadedState, */ composeEnhancers(
+  applyMiddleware(reduxThunk),
+));
+/* eslint-enable */
 
 ReactDOM.render(
   <Provider store={store}><Contact /></Provider>,
