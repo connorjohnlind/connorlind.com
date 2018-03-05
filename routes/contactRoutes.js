@@ -1,6 +1,7 @@
 module.exports = (app) => {
   // send off email (reset form on client side)
   app.post('/api/contact', async (req, res) => {
+    console.log('contact');
     res.send({});
   });
 };

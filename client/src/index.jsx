@@ -4,19 +4,20 @@ import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import reduxThunk from 'redux-thunk';
 
 import './index.scss';
 import './assets/fonts/Raleway/Raleway.scss';
 import favicon from './assets/favicon.ico'; // eslint-disable-line no-unused-vars
-import Contact from './components/Contact';
+import Contact from './components/Contact/Contact';
 import reducers from './reducers';
 
 window.$ = $;
 particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
 
 // Redux Form for Contact
-const store = createStore(reducers);
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <Provider store={store}><Contact /></Provider>,

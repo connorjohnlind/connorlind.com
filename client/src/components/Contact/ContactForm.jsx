@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
-import validateEmails from '../utils/validateEmails';
+import validateEmails from '../../utils/validateEmails';
 import ContactField from './ContactField';
 import formFields from './formFields';
 
 class ContactForm extends Component {
-  renderformFields() {
+  renderformFields = () => {
     const fields = formFields.map(({ label, name }) => (
       <Field
         key={name}
@@ -19,11 +20,10 @@ class ContactForm extends Component {
     ));
     return <div>{fields}</div>;
   }
-
   render() {
     return (
       <div>
-        <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+        <form onSubmit={this.props.handleSubmit(values => this.props.submitContact(values))}>
           {this.renderformFields()}
           <button type="submit">
             Submit
@@ -52,13 +52,9 @@ const mapStateToProps = state => ({
   // ...
 });
 
-const mapDispatchToProps = dispatch  => ({
-  // ...
-});
-
 ContactForm = connect(
   mapStateToProps,
-  mapDispatchToProps
+  actions,
 )(ContactForm);
 
 export default reduxForm({

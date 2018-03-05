@@ -4,11 +4,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+  entry: './src/index.jsx',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
     historyApiFallback: true,
+    proxy: {
+      '/api/**': {
+        target: 'http://localhost:3000',
+        secure: false,
+        changeOrigin: true,
+        logLevel: 'debug',
+      },
+    },
   },
-  entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',

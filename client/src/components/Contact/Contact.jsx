@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import ContactForm from './ContactForm';
 
 class Contact extends Component {
-  state = {
-    // showFormReview: false,
-  }
   renderContent() {
+    console.log(this);
     // if error, show error
     // else if complete, show thank you
     // else show form
