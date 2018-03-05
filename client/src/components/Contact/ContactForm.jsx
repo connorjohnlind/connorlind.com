@@ -56,5 +56,4 @@ ContactForm = connect(
 export default reduxForm({
   validate,
   form: 'ContactForm',
-  destroyOnUnmount: false,
 })(ContactForm);
