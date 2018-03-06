@@ -16,7 +16,7 @@ import reducers from './reducers';
 // Particle JS Banner
 window.$ = $;
 particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
-
+$('hidden').removeClass('hidden');
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

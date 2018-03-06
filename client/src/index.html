@@ -20,9 +20,9 @@
       <div class="flex">
         <div id="particles-js">
         </div>
-        <div class="flex fade-in">
-          <h1 class="header">Hello there, I'm <span>Connor Lind</span>,<br/>a full-stack Javascript developer</h1>
-          <a href="#about"><button>&gt;</button></a>
+        <div class="flex hidden fade-in">
+          <h1 class="header fade-in">Hello there, I'm <span>Connor Lind</span>,<br/>a full-stack Javascript developer</h1>
+          <a href="#about"><button class="fade-in">&gt;</button></a>
         </div>
       </div>
     </header>
@@ -191,8 +191,12 @@
       </div>
 
       <div class="info-box">
-        <div class="footnote">Connor Lind <span>&copy; 2017</span></div>
+        <div class="footnote">Connor Lind &copy; <span id="year">2018</span></div>
       </div>
+      <script>
+        var d = new Date();
+        document.getElementById("year").innerHTML = d.getFullYear();
+      </script>
     </footer>
   </body>
 </html>
