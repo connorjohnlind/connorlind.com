@@ -3,18 +3,30 @@ import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-import validateEmails from '../../utils/validateEmails';
 import ContactField from './ContactField';
 import formFields from './formFields';
 
+const validate = (values) => {
+  const errors = {};
+
+  formFields.forEach(({ name, label }) => {
+    if (!values[name]) {
+      errors[name] = `${label} Required`;
+    }
+  });
+
+  return errors;
+};
+
 class ContactForm extends Component {
   renderformFields = () => {
-    const fields = formFields.map(({ label, name }) => (
+    const fields = formFields.map(({ label, type, name, tag }) => (
       <Field
         key={name}
-        type="text"
+        type={type}
         name={name}
-        label={label}
+        tag={tag}
+        placeholder={label}
         component={ContactField}
       />
     ));
@@ -22,33 +34,18 @@ class ContactForm extends Component {
   }
   render() {
     return (
-      <div>
-        <form onSubmit={this.props.handleSubmit(values => this.props.submitContact(values))}>
-          {this.renderformFields()}
-          <button type="submit">
-            Submit
-          </button>
-        </form>
-      </div>
+      <form onSubmit={this.props.handleSubmit(values => this.props.submitContact(values))}>
+        <p>Like what you see? Lets work together.</p>
+        {this.renderformFields()}
+        <button className="contact-submit" type="submit">
+          Submit
+        </button>
+      </form>
     );
   }
 }
 
-function validate(values) {
-  const errors = {};
-
-  errors.email = validateEmails(values.email || '');
-
-  formFields.forEach(({ name }) => {
-    if (!values[name]) {
-      errors[name] = 'Provide a value';
-    }
-  });
-
-  return errors;
-}
-
-ContactForm = connect(
+ContactForm = connect( // eslint-disable-line no-class-assign
   null,
   actions,
 )(ContactForm);

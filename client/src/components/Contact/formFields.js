@@ -1,5 +1,20 @@
 export default [
-  { label: 'Name', name: 'name' },
-  { label: 'Email', name: 'email' },
-  { label: 'Message', name: 'message' },
+  {
+    label: 'Name',
+    type: 'text',
+    tag: 'input',
+    name: 'name',
+  },
+  {
+    label: 'Email',
+    type: 'email',
+    tag: 'input',
+    name: 'email',
+  },
+  {
+    label: 'Message',
+    type: 'text',
+    tag: 'textarea',
+    name: 'message',
+  },
 ];

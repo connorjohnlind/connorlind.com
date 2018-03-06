@@ -114,6 +114,7 @@ a.anchor {
 
   .tech {
     width:100%;
+    max-width: 1300px;
   }
 
   .img-wrap {
@@ -206,25 +207,10 @@ a.anchor {
     width: 110px;
   }
 
-  .highlight {
-    font-weight: 600;
-    color: #04C2C9;
-  }
-
-  p {
-    font-size: 11pt;
-  }
-
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  form {
-    margin: 40px auto 0;
+  #contact-root {
     width:90%;
     max-width:500px;
+    min-height: 430px;
   }
 
   input[type="text"],
@@ -243,13 +229,18 @@ a.anchor {
   }
 
   textarea {
+    resize: vertical;
     min-height: 150px;
-    margin-bottom: 5px;
+  }
+
+  .validation-error {
+    &::placeholder {
+      color: #ff5454;
+      font-weight: 700;
+    }
   }
 
   .contact-submit {
-    font-family: 'Raleway-Bold', 'Helvetica', 'sans-serif';
-    margin: 0px 5px;
     width:80px;
     height:30px;
     border: none;
@@ -262,6 +253,10 @@ a.anchor {
 
     &:hover {
       background-color: grey;
+    }
+
+    .contact-complete {
+      min-height: 430px;
     }
   }
 }

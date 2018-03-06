@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ContactForm from './ContactForm';
-import ContactComplete from './ContactComplete'
+import ContactComplete from './ContactComplete';
 
 class Contact extends Component {
-  renderContent () {
+  renderContent() {
     if (this.props.error) {
       return <ContactComplete error={this.props.error} />;
     } else if (this.props.complete) {

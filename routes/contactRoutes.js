@@ -23,7 +23,7 @@ module.exports = (app) => {
       to: 'connorjohnlind@gmail.com',
       from: email,
       subject: 'Contact via connorlind.com',
-      text: `New message from ${name}: ${message}`,
+      html: `<h4>Message from ${name}:</h4></br><p>${message}</p>`,
     };
 
     try {

@@ -7,6 +7,6 @@ export const submitContact = values => async (dispatch) => {
     await axios.post('/api/contact', values);
     dispatch({ type: CONTACT_SUCCESS });
   } catch (error) {
-    dispatch({ type: CONTACT_FAIL, payload: error });
+    dispatch({ type: CONTACT_FAIL, payload: error.response });
   }
 };
