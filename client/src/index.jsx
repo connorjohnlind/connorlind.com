@@ -17,6 +17,7 @@ import reducers from './reducers';
 window.$ = $;
 particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
 
+
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducers, /* preloadedState, */ composeEnhancers(
