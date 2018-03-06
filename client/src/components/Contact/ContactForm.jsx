@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import PropTypes from 'prop-types';
 
+import * as actions from '../../actions';
 import ContactField from './ContactField';
 import formFields from './formFields';
 
@@ -20,7 +21,7 @@ const validate = (values) => {
 
 class ContactForm extends Component {
   renderformFields = () => {
-    const fields = formFields.map(({ label, type, name, tag }) => (
+    const fields = formFields.map(({ label, type, name, tag }) => ( // eslint-disable-line object-curly-newline, max-len
       <Field
         key={name}
         type={type}
@@ -44,6 +45,11 @@ class ContactForm extends Component {
     );
   }
 }
+
+ContactForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  submitContact: PropTypes.func.isRequired,
+};
 
 ContactForm = connect( // eslint-disable-line no-class-assign
   null,

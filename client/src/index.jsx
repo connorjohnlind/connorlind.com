@@ -13,6 +13,7 @@ import favicon from './assets/favicon.ico'; // eslint-disable-line no-unused-var
 import Contact from './components/Contact/Contact';
 import reducers from './reducers';
 
+// Particle JS Banner
 window.$ = $;
 particlesJS.load('particles-js', './config/particles.json'); // eslint-disable-line no-undef
 
@@ -23,6 +24,7 @@ const store = createStore(reducers, /* preloadedState, */ composeEnhancers(
 ));
 /* eslint-enable */
 
+// Redux Form for Contact Section
 ReactDOM.render(
   <Provider store={store}><Contact /></Provider>,
   document.getElementById('contact-root'),
@@ -30,6 +32,7 @@ ReactDOM.render(
 
 // jQuery
 $(() => {
+  // viewportHeight fix for mobile devices
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     const viewportHeight = $(window).innerHeight();
     $('#home').css({ height: viewportHeight });
@@ -68,7 +71,7 @@ $(() => {
   };
 
   /* eslint-disable func-names, prefer-arrow-callback */
-  // jQuery didn't like some ES6 features :(
+  // jQuery didn't like the ES6 syntax :(
   $(window).resize(function () {
     homeBottom = $('#main').position().top;
   });
@@ -76,7 +79,6 @@ $(() => {
   $(window).scroll(function () {
     scrollThenFixNav(this);
   });
-  /* eslint-enable func-names, prefer-arrow-callback */
 
   // if page is reloaded anywhere beyond Home section, call the menu fixer
   scrollThenFixNav(window);

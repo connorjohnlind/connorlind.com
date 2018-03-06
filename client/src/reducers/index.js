@@ -6,5 +6,3 @@ export default combineReducers({
   contact: contactReducer,
   form: reduxForm,
 });
-
-// Note: Left combine reducers for extensibility

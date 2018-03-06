@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const sgMail = require('@sendgrid/mail');
-// const Mailer = require('../services/Mailer');
-// const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 
 const Contact = mongoose.model('contact');
 

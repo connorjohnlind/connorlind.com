@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default (props) => {
+const ContactField = (props) => {
   const Tag = `${props.tag}`;
 
   let placeholderText;
@@ -24,3 +25,16 @@ export default (props) => {
     </div>
   );
 };
+
+ContactField.propTypes = {
+  input: PropTypes.shape({}).isRequired,
+  meta: PropTypes.shape({
+    error: PropTypes.bool.isRequired,
+    touched: PropTypes.isRequired,
+  }).isRequired,
+  placeholder: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+};
+
+export default ContactField;
