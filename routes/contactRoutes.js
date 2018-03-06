@@ -8,7 +8,6 @@ const Contact = mongoose.model('contact');
 sgMail.setApiKey(process.env.SENDGRID_KEY);
 
 module.exports = (app) => {
-  // send off email (reset form on client side)
   app.post('/api/contact', async (req, res) => {
     const { name, email, message } = req.body;
 
