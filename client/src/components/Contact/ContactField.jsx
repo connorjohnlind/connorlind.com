@@ -29,7 +29,7 @@ const ContactField = (props) => {
 ContactField.propTypes = {
   input: PropTypes.shape({}).isRequired,
   meta: PropTypes.shape({
-    error: PropTypes.bool.isRequired,
+    error: PropTypes.string,
     touched: PropTypes.isRequired,
   }).isRequired,
   placeholder: PropTypes.string.isRequired,

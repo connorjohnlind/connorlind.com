@@ -35,7 +35,7 @@ class ContactForm extends Component {
   }
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(values => this.props.submitContact(values))}>
+      <form onSubmit={this.props.handleSubmit(values => this.props.submitForm(values))}>
         <p>Like what you see? Lets work together.</p>
         {this.renderformFields()}
         <button className="contact-submit" type="submit">
@@ -48,7 +48,7 @@ class ContactForm extends Component {
 
 ContactForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  submitContact: PropTypes.func.isRequired,
+  submitForm: PropTypes.func.isRequired,
 };
 
 ContactForm = connect( // eslint-disable-line no-class-assign
