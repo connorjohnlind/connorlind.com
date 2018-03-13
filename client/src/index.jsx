@@ -81,6 +81,12 @@ $(() => {
     scrollThenFixNav(this);
   });
 
+  $('#scrollToAbout').click(function () {
+    $('html, body').animate({
+      scrollTop: $('#about').offset().top,
+    }, 1000);
+  });
+
   // if page is reloaded anywhere beyond Home section, call the menu fixer
   scrollThenFixNav(window);
 });
