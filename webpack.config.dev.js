@@ -1,9 +1,9 @@
-const path = require('path')
-const autoprefixer = require('autoprefixer')
-const webpack = require('webpack')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const path = require('path');
+const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -12,14 +12,14 @@ module.exports = {
       'react-hot-loader/patch',
       'babel-register',
       'webpack-hot-middleware/client?reload=true',
-      './client/index.jsx'
-    ]
+      './client/index.jsx',
+    ],
   },
   mode: 'development',
   output: {
     filename: '[name]-bundle.js',
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/'
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -28,8 +28,8 @@ module.exports = {
     contentBase: 'dist',
     overlay: true,
     stats: {
-      colors: true
-    }
+      colors: true,
+    },
   },
   optimization: {
     splitChunks: {
@@ -38,10 +38,10 @@ module.exports = {
         vendor: {
           name: 'vendor',
           chunks: 'initial',
-          minChunks: 2
-        }
-      }
-    }
+          minChunks: 2,
+        },
+      },
+    },
   },
   devtool: 'source-map',
   module: {
@@ -89,7 +89,7 @@ module.exports = {
       },
       { test: /\.(png|jpe?g|gif|svg)$/, loader: 'url-loader?limit=8000&name=images/[name].[ext]' },
       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' },
+      { test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' },
       { test: /\.(ico)$/, loader: 'file-loader?name=[name].[ext]' },
       { test: /\.html$/, loader: 'html-loader' },
     ],

@@ -12,12 +12,11 @@ exports.handler = (event, context, callback) => {
 			Body: {
 				Html: {
 					Charset: 'UTF-8',
-					Data:
-            `From ${event.name} (${event.email}): ${event.message} `,
+					Data: `From ${event.name} (${event.email}): ${event.message}`,
 				},
 				Text: {
 					Charset: 'UTF-8',
-					Data: 'This is the message body in text format.',
+					Data: `From ${event.name} (${event.email}): ${event.message}`,
 				},
 			},
 			Subject: {
@@ -48,20 +47,19 @@ exports.handler = (event, context, callback) => {
 
 	ses.sendEmail(eParams, function(err, eData) {
 		if (err) {
-    		console.log(err, err.stack); // an error occurred
-    		callback();
-    	}
-		else {
-    		console.log(eData);
-    		dynamodb.putItem(dParams, function(err, dData) {
-	    		if (err) {
-	    			console.log(err);
-	    			callback();
-	    		} else {
-	    			console.log(dData);
-	    			callback(null, dData);
-	    		}
-    		});
-    	}
+			console.log(err, err.stack); // an error occurred
+			callback();
+		} else {
+			console.log(eData);
+			dynamodb.putItem(dParams, function(err, dData) {
+				if (err) {
+					console.log(err);
+					callback();
+				} else {
+					console.log(dData);
+					callback(null, dData);
+				}
+			});
+		}
 	});
 };
