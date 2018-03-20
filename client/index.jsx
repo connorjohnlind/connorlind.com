@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import 'particles.js';
 import $ from 'jquery';
 import React from 'react';
@@ -7,9 +6,10 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 
+import './index.html';
 import './index.scss';
-import './assets/fonts/Raleway/Raleway.scss';
-import favicon from './assets/favicon.ico'; // eslint-disable-line no-unused-vars
+import './fonts/Raleway/Raleway.scss';
+import favicon from './images/favicon.ico'; // eslint-disable-line no-unused-vars
 import Contact from './components/Contact/Contact';
 import reducers from './reducers';
 
@@ -20,9 +20,7 @@ $('hidden').removeClass('hidden');
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, /* preloadedState, */ composeEnhancers(
-  applyMiddleware(reduxThunk),
-));
+const store = createStore(reducers, composeEnhancers(applyMiddleware(reduxThunk)));
 /* eslint-enable */
 
 // Redux Form for Contact Section
