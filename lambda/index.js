@@ -13,7 +13,7 @@ exports.handler = (event, context, callback) => {
 				Html: {
 					Charset: 'UTF-8',
 					Data:
-						'This message body contains HTML formatting. It can, for example, contain links like this one: <a class="ulink" href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide" target="_blank">Amazon SES Developer Guide</a>.',
+            `From ${event.name} (${event.email}): ${event.message} `,
 				},
 				Text: {
 					Charset: 'UTF-8',
@@ -22,17 +22,13 @@ exports.handler = (event, context, callback) => {
 			},
 			Subject: {
 				Charset: 'UTF-8',
-				Data: 'Test email',
+				Data: 'New contact via connorlind.com',
 			},
 		},
-		ReplyToAddresses: [],
-		ReturnPath: '',
-		ReturnPathArn: '',
-		Source: 'sender@example.com',
-		SourceArn: '',
+		Source: 'connorjohnlind@gmail.com',
 	};
 
-	const dDarams = {
+	const dParams = {
 		Item: {
 			UserId: {
 				S: 'user_' + Math.random(),
@@ -46,29 +42,26 @@ exports.handler = (event, context, callback) => {
 			Message: {
 				S: event.message,
 			},
-      Date: {
-				S: event.date,
-			},
 		},
 		TableName: 'connorlind-contact',
 	};
 
 	ses.sendEmail(eParams, function(err, eData) {
 		if (err) {
-      console.log(err, err.stack); // an error occurred
-      callback();
-    }
+    		console.log(err, err.stack); // an error occurred
+    		callback();
+    	}
 		else {
-      console.log(eData);
-      dynamodb.putItem(dParams, function(err, dData) {
-    		if (err) {
-    			console.log(err);
-    			callback();
-    		} else {
-    			console.log(dData);
-    			callback(null, dData);
-    		}
-    	});
-    }
+    		console.log(eData);
+    		dynamodb.putItem(dParams, function(err, dData) {
+	    		if (err) {
+	    			console.log(err);
+	    			callback();
+	    		} else {
+	    			console.log(dData);
+	    			callback(null, dData);
+	    		}
+    		});
+    	}
 	});
 };
