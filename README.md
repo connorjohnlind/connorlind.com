@@ -6,7 +6,7 @@ This website is built "serverless" with Amazon Web Services.
 
 ## Notable Features
 
-### [Redux Form](https://github.com/connorjohnlind/connorlind.com/tree/master/client/src/components/Contact) & [AWS Lambda](https://github.com/connorjohnlind/connorlind.com/blob/master/lambda/index.js)
+### [Redux Form](https://github.com/connorjohnlind/connorlind.com/blob/master/client/components/Contact/ContactForm.jsx) & [AWS Lambda](https://github.com/connorjohnlind/connorlind.com/blob/master/lambda/index.js)
 
 Send an email with SES and store the result in DynamoDB:
 
@@ -29,52 +29,55 @@ export const submitForm = values => (dispatch) => {
 };
 ```
 ```javascript
-/**** AWS Lambda function ****/
+// AWS Lambda function
 
 const AWS = require('aws-sdk');
 const ses = new AWS.SES({ apiVersion: '2010-12-01' });
-const dynamodb = new AWS.DynamoDB({ region: 'us-west-2', apiVersion: '2012-08-10' });
+const dynamodb = new AWS.DynamoDB({
+	region: 'us-west-2',
+	apiVersion: '2012-08-10'
+});
 
 exports.handler = (event, context, callback) => {
 	const eParams = {
 		Destination: {
-			ToAddresses: ['connorjohnlind@gmail.com'],
+			ToAddresses: ['connorjohnlind@gmail.com']
 		},
 		Message: {
 			Body: {
 				Html: {
 					Charset: 'UTF-8',
-					Data: `From ${event.name} (${event.email}): ${event.message}`,
+					Data: `From ${event.name} (${event.email}): ${event.message}`
 				},
 				Text: {
 					Charset: 'UTF-8',
-					Data: `From ${event.name} (${event.email}): ${event.message}`,
-				},
+					Data: `From ${event.name} (${event.email}): ${event.message}`
+				}
 			},
 			Subject: {
 				Charset: 'UTF-8',
-				Data: 'New contact via connorlind.com',
-			},
+				Data: 'New contact via connorlind.com'
+			}
 		},
-		Source: 'connorjohnlind@gmail.com',
+		Source: 'connorjohnlind@gmail.com'
 	};
 
 	const dParams = {
 		Item: {
 			UserId: {
-				S: 'user_' + Math.random(),
+				S: 'user_' + Math.random()
 			},
 			Name: {
-				S: event.name,
+				S: event.name
 			},
 			Email: {
-				S: event.email,
+				S: event.email
 			},
 			Message: {
-				S: event.message,
-			},
+				S: event.message
+			}
 		},
-		TableName: 'connorlind-contact',
+		TableName: 'connorlind-contact'
 	};
 
 	ses.sendEmail(eParams, function(err, eData) {
@@ -91,18 +94,18 @@ exports.handler = (event, context, callback) => {
 					console.log(dData);
 					callback(null, dData);
 				}
-		  });
+			});
 		}
 	});
 };
 
+
 ```
-### [jQuery Nav Bar](https://github.com/connorjohnlind/connorlind.com/blob/master/client/src/index.jsx)
+### [jQuery Nav Bar](https://github.com/connorjohnlind/connorlind.com/blob/master/client/index.jsx)
 
 Sticky navigation, one of jQuery's strong suits:
 
 ```javascript
-// jQuery
 $(() => {
   // viewportHeight fix for mobile devices
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -162,5 +165,5 @@ $(() => {
 ```
 
 
-### [Particle.js Banner](https://github.com/connorjohnlind/connorlind.com/blob/master/client/src/assets/config/particles.json)
+### [Particle.js Banner](https://github.com/connorjohnlind/connorlind.com/blob/master/client/index.jsx)
 Third-party canvas for the main banner area
